@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Health : MonoBehaviour
 {
+    public int health;
+    public int maxHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +20,10 @@ public class Health : MonoBehaviour
         
     }
 
+    //passed value would have a negative value if losing health 
     public void ChangeHealth(int value)
     {
+        health += value;
         Debug.Log("changed health by " + value);
     }
 }
