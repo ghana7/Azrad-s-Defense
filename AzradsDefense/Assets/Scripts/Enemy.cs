@@ -1,26 +1,48 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float movementSpeed;
-    public int goldDropped;
-    public List<Vector3> enemyPath;
+    float movementSpeed;
+    List<Vector3> enemyPath;
+    int goldDropped;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyPath = new List<Vector3>();
-
-        movementSpeed = 1.0f;
+        movementSpeed = 2.0f;
         goldDropped = 10;
+
+        for (int i = 0; i < 10; i++)
+        {
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void Move()
+    {
+
+    }
+
+    void Behavior()
+    {
+
+    }
+
+    void FullDestroy()
+    {
+
+    }
+
+    float ProgressAmount()
+    {
+        return 1.0f;
     }
 }
