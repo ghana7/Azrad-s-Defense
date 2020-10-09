@@ -8,12 +8,15 @@ public class Shooter : MonoBehaviour
     private GameObject projectilePrefab;
 
     [SerializeField]
+    private GameObject cannonObject;
+
+    [SerializeField]
     private float range;
 
     [SerializeField]
     private float shotsPerSecond;
-    
 
+    private GameObject currentTarget;
 
     private List<GameObject> targetsInRange;
     private CircleCollider2D rangeCollider;
@@ -34,6 +37,7 @@ public class Shooter : MonoBehaviour
     void Update()
     {
         DebugMove(3);
+        Aim();
         foreach(GameObject g in targetsInRange)
         {
             Debug.DrawLine(transform.position, g.transform.position);
@@ -58,6 +62,10 @@ public class Shooter : MonoBehaviour
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -65,6 +73,10 @@ public class Shooter : MonoBehaviour
         if(other.gameObject.GetComponent<Health>() != null)
         {
             targetsInRange.Add(other.gameObject);
+            if(currentTarget == null)
+            {
+                UpdateTarget();
+            }
         }
     }
 
@@ -73,6 +85,10 @@ public class Shooter : MonoBehaviour
         if (other.gameObject.GetComponent<Health>() != null)
         {
             targetsInRange.Remove(other.gameObject);
+            if(other.gameObject == currentTarget)
+            {
+                UpdateTarget();
+            }
         }
     }
 
@@ -81,9 +97,15 @@ public class Shooter : MonoBehaviour
     /// 
     /// Probably should be the furthest forward enemy
     /// </summary>
-    private void GetTarget()
+    private void UpdateTarget()
     {
-        
+        if(targetsInRange.Count > 0)
+        {
+            currentTarget = targetsInRange[0];
+        } else
+        {
+            currentTarget = null;
+        }
     }
 
     /// <summary>
@@ -91,7 +113,17 @@ public class Shooter : MonoBehaviour
     /// </summary>
     private void Aim()
     {
-
+        if (currentTarget != null)
+        {
+            if (cannonObject != null)
+            {
+                cannonObject.transform.SetPositionAndRotation(cannonObject.transform.position, Quaternion.LookRotation(Vector3.forward, Vector3.Cross(currentTarget.transform.position - transform.position, transform.forward)));
+            } else
+            {
+                transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(Vector3.forward, Vector3.Cross(Vector3.forward, currentTarget.transform.position - transform.position)));
+            }
+            
+        }
     }
 
     /// <summary>
@@ -99,7 +131,12 @@ public class Shooter : MonoBehaviour
     /// </summary>
     private void Shoot()
     {
-
+        if(projectilePrefab != null)
+        {
+            GameObject projectileInstance = Instantiate(projectilePrefab);
+            projectileInstance.transform.position = transform.position;
+            projectileInstance.GetComponent<Projectile>().target = currentTarget;
+        }
     }
 
 }
