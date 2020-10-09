@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba8a70342a465a4da8f8a8345dde12c, type: 3}
+  m_Name: example_money
+  m_EditorClassIdentifier: 
+  _name: example_money
+  audioClip: {fileID: 8300000, guid: bcc18d4425c0ed645a33de3836254c7f, type: 3}
+  volume: 1
+  pitch: 1
+  volumeVariance: 0.1
+  pitchVariance: 0.1
+  looping: 0
