@@ -4,45 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    float movementSpeed;
-    List<Vector3> enemyPath;
-    int goldDropped;
+    public float movementSpeed;
+    public int goldDropped;
 
     // Start is called before the first frame update
     void Start()
     {
-        movementSpeed = 2.0f;
+        movementSpeed = Random.Range(1, 10);
         goldDropped = 10;
 
-        for (int i = 0; i < 10; i++)
-        {
-
-        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void Move()
-    {
-
-    }
-
-    void Behavior()
-    {
-
-    }
-
-    void FullDestroy()
-    {
-
-    }
-
-    float ProgressAmount()
-    {
-        return 1.0f;
+       
     }
 }
