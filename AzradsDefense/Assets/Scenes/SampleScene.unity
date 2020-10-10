@@ -1084,6 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
+  cannonObject: {fileID: 0}
   range: 2
   shotsPerSecond: 0
 --- !u!212 &852760976
