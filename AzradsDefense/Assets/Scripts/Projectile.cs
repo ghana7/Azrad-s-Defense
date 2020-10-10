@@ -36,8 +36,8 @@ public class Projectile : MonoBehaviour
     /// </summary>
     protected virtual void Hit()
     {
-        //Uncomment when health implemented
-        //target.GetComponent<Health>().ChangeHealth(-damage);
+        
+        target.GetComponent<Health>().ChangeHealth(-damage);
         Debug.Log("hit");
         Destroy(gameObject);
     }
