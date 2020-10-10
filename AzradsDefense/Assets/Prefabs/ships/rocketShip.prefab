@@ -284,6 +284,6 @@ MonoBehaviour:
   canTravel: 0
   travelPoints: []
   movementSpeed: 0
-  price: 0
+  price: 100
   isDamaged: 0
   canAttack: 0

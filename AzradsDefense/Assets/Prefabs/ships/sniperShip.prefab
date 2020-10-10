@@ -188,7 +188,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 630e898e7f9a31f4fad92d696762a90e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfe4db6eaca7ce84db5ad5d7b5beca3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   canTravel: 0
   travelPoints: []
   movementSpeed: 0
-  price: 0
+  price: 250
   isDamaged: 0
   canAttack: 0
 --- !u!114 &6171872025592738723
