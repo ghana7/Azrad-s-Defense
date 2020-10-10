@@ -16,12 +16,26 @@ public class Tower : MonoBehaviour
 
     [SerializeField]
     private GameObject towerPrefab;
+
+    [SerializeField]
     private TypeOfTower towerType;
+
+    [SerializeField]
     private bool canTravel;
+
+    [SerializeField]
     private List<Vector3> travelPoints;
+
+    [SerializeField]
     private float movementSpeed;
+
+    [SerializeField]
     private int price;
+
+    [SerializeField]
     private bool isDamaged;
+
+    [SerializeField]
     private bool canAttack;
 
     // Start is called before the first frame update
@@ -39,7 +53,7 @@ public class Tower : MonoBehaviour
     }
 
     //places the tower onto the map
-    public void Place(Vector3 position, TypeOfTower type)
+    public void Place(Vector3 position)
     {
         Instantiate(towerPrefab, position, Quaternion.identity);
     }

@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     public void FullDestroy()
     {
         MoneyManager.instance.AddMoney(goldDropped);
+        WaveManager.instance.RemoveEnemy();
         Destroy(gameObject);
     }
 }
