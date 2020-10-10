@@ -25,21 +25,21 @@ public class MoneyManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 1.0f)
         {
-            addMoney(doubloonsPerSecond);
+            AddMoney(doubloonsPerSecond);
             timer = 0.0f;
         }
         
     }
 
     //adds the specified amount of money
-    public void addMoney(uint donations)
+    public void AddMoney(uint donations)
     {
         doubloons += donations;
     }
 
     //if the player does not have enough doubloons, returns false
     //if the player does, removes that many doubloons and returns true
-    public bool removeMoney(uint expenditure)
+    public bool RemoveMoney(uint expenditure)
     {
         if (doubloons >= expenditure)
         {
