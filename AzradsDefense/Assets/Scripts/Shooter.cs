@@ -15,6 +15,8 @@ public class Shooter : MonoBehaviour
 
     [SerializeField]
     private float shotsPerSecond;
+    
+    private bool isEnemy;
 
     private GameObject currentTarget;
 
@@ -26,6 +28,9 @@ public class Shooter : MonoBehaviour
         rangeCollider = GetComponent<CircleCollider2D>();
 
         targetsInRange = new List<GameObject>();
+
+
+        isEnemy = GetComponent<Enemy>() != null;
     }
     // Start is called before the first frame update
     void Start()
@@ -70,12 +75,18 @@ public class Shooter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //check to make sure object has a health script and can be shot
         if(other.gameObject.GetComponent<Health>() != null)
         {
-            targetsInRange.Add(other.gameObject);
-            if(currentTarget == null)
+            //next, check that the object is of the opposite type of the shooter
+            //i.e., towers only target enemies, enemies only target towers
+            if (isEnemy && other.gameObject.GetComponent<Tower>() || !isEnemy && other.gameObject.GetComponent<Enemy>())
             {
-                UpdateTarget();
+                targetsInRange.Add(other.gameObject);
+                if (currentTarget == null)
+                {
+                    UpdateTarget();
+                }
             }
         }
     }
@@ -84,10 +95,15 @@ public class Shooter : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Health>() != null)
         {
-            targetsInRange.Remove(other.gameObject);
-            if(other.gameObject == currentTarget)
+            //next, check that the object is of the opposite type of the shooter
+            //i.e., towers only target enemies, enemies only target towers
+            if (isEnemy && other.gameObject.GetComponent<Tower>() || !isEnemy && other.gameObject.GetComponent<Enemy>())
             {
-                UpdateTarget();
+                targetsInRange.Remove(other.gameObject);
+                if (other.gameObject == currentTarget)
+                {
+                    UpdateTarget();
+                }
             }
         }
     }
