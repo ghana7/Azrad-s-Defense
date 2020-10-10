@@ -7,12 +7,10 @@ public class Health : MonoBehaviour
 {
     public int health;
     public int maxHealth;
-    Tower towerClass;
 
     // Start is called before the first frame update
     void Start()
     {
-        towerClass = GetComponent<Tower>();
     }
 
     // Update is called once per frame

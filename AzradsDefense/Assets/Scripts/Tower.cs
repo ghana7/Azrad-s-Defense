@@ -55,6 +55,7 @@ public class Tower : MonoBehaviour
     //fix a destroyed tower
     public void Rebuild()
     {
+        isDamaged = false;
         canAttack = true;
         healthClass.health = healthClass.maxHealth;
     }
