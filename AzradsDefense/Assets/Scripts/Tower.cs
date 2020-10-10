@@ -9,6 +9,7 @@ public enum TypeOfTower
     sea,
     both
 }
+[RequireComponent(typeof(Health))]
 public class Tower : MonoBehaviour
 {
     public GameObject towerPrefab;

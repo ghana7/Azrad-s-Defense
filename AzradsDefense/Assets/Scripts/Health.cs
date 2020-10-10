@@ -38,12 +38,12 @@ public class Health : MonoBehaviour
         {
             if(gameObject.GetComponent<Tower>() != null)
             {
-                //gameObject.GetComponent<Tower>().DestroyTower();
+                gameObject.GetComponent<Tower>().DestroyTower();
             }
 
             if(gameObject.GetComponent<Enemy>() != null)
             {
-                //gameObject.GetComponent<Enemy>().FullDestroy();
+                gameObject.GetComponent<Enemy>().FullDestroy();
             }
         }
     }

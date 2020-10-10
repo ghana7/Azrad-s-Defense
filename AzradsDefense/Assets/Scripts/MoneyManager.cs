@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
+    public static MoneyManager instance;
     private int doubloons;
     private int doubloonsPerSecond;
     private float timer;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
