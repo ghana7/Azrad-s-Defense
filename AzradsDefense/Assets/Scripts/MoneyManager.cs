@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class MoneyManager : MonoBehaviour
     private int doubloons;
     private int doubloonsPerSecond;
     private float timer;
+
+    [SerializeField]
+    private Text doubloonsText;
 
     private void Awake()
     {
@@ -36,6 +40,7 @@ public class MoneyManager : MonoBehaviour
         {
             AddMoney(doubloonsPerSecond);
             timer = 0.0f;
+            doubloonsText.text = doubloons.ToString();
         }
         
     }
@@ -56,5 +61,10 @@ public class MoneyManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public int GetMoney()
+    {
+        return doubloons;
     }
 }

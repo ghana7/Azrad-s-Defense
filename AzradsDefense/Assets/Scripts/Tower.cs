@@ -79,5 +79,11 @@ public class Tower : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    //return price of tower
+    public int GetPrice()
+    {
+        return price;
+    }
 }
 
