@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
+    [HideInInspector]
+    public static MoneyManager instance;
+
     private int doubloons;
     private int doubloonsPerSecond;
     private float timer;
@@ -16,6 +19,8 @@ public class MoneyManager : MonoBehaviour
 
         //change to set doubleloons per second
         doubloonsPerSecond = 3;
+
+        instance = this;
     }
 
     // Update is called once per frame

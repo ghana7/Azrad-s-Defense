@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 //The Level Manager will send a list of strings with enemy types to the Wave Manager
 //The Wave Manager will spawn units of the given type then, when the Level Manager sees the Wave Manager is done, the Level Manager can send a new wave
 public class WaveManager : MonoBehaviour
 {
-    public List<string> enemiesToSpawn;
-    public GameObject enemy;
+    [HideInInspector]
+    public static WaveManager instance;
+    [HideInInspector]
+    public List<int> enemiesToSpawn;
 
-    //WHEN AN ENEMY DIES NEED TO CHANGE THIS
-    public int enemiesLeft;
+    [SerializeField]
+    private List<GameObject> enemyType;
+
+    //WHEN AN ENEMY DIES NEED TO CHANGE THIS  <<<<<<<<<<<
+    private int enemiesLeft;
 
     private float timer;
     private float secondsBetweenSpawns;
@@ -22,6 +26,8 @@ public class WaveManager : MonoBehaviour
         timer = 0.0f;
         secondsBetweenSpawns = 5.0f;
         enemiesLeft = enemiesToSpawn.Count;
+
+        instance = this;
     }
 
     // Update is called once per frame
@@ -31,13 +37,10 @@ public class WaveManager : MonoBehaviour
         if (timer >= secondsBetweenSpawns)
         {
             //FIX LOCATION
-            Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
-            //SET THE ENEMY TYPE FROMM THE ENEMIES TO SPAWN LIST
+            GameObject newEnemy = Instantiate(enemyType[enemiesToSpawn[0]], LevelManager.instance.spawnLocation, Quaternion.identity);
             enemiesToSpawn.RemoveAt(0);
             timer = 0.0f;
         }
-
-        //REMOVE FROM ENEMIES SPAWNED WHEN ENEMY DIES
     }
 
     //returns false if the wave is still going
@@ -46,7 +49,6 @@ public class WaveManager : MonoBehaviour
     {
         if (enemiesLeft == 0)
         {
-            //delete this wave manager?
             return true;
         }
         return false;
