@@ -7,11 +7,12 @@ public class Health : MonoBehaviour
 {
     public int health;
     public int maxHealth;
+    Tower towerClass;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        towerClass = GetComponent<Tower>();
     }
 
     // Update is called once per frame
@@ -23,6 +24,14 @@ public class Health : MonoBehaviour
     //passed value would have a negative value if losing health 
     public void ChangeHealth(int value)
     {
+        if(health == 0)
+        {
+            towerClass.DestroyTower();
+        }
+        if(health < maxHealth)
+        {
+            towerClass.isDamaged = true;
+        }
         health += value;
 
         if (health <= 0)
