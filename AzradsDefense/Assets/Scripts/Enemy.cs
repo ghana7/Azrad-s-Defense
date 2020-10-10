@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
     public float movementSpeed;
@@ -43,8 +44,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void FullDestroy(GameObject enemy)
+    public void FullDestroy()
     {
-        Destroy(enemy);
+        MoneyManager.instance.AddMoney(goldDropped);
+        Destroy(gameObject);
     }
 }
