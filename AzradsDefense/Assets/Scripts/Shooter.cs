@@ -15,7 +15,9 @@ public class Shooter : MonoBehaviour
 
     [SerializeField]
     private float shotsPerSecond;
-    
+    private float secondsPerShot;
+    private float shotCooldown;
+
     private bool isEnemy;
 
     private GameObject currentTarget;
@@ -35,7 +37,8 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rangeCollider.radius = range;   
+        rangeCollider.radius = range;
+        secondsPerShot = 1 / shotsPerSecond;
     }
 
     // Update is called once per frame
@@ -43,7 +46,19 @@ public class Shooter : MonoBehaviour
     {
         DebugMove(3);
         Aim();
-        foreach(GameObject g in targetsInRange)
+        if (currentTarget != null)
+        {
+
+            shotCooldown += Time.deltaTime;
+            if(shotCooldown >= secondsPerShot)
+            {
+            
+            Shoot();
+            shotCooldown -= secondsPerShot;
+            }
+        }
+
+        foreach (GameObject g in targetsInRange)
         {
             Debug.DrawLine(transform.position, g.transform.position);
         }
@@ -66,10 +81,6 @@ public class Shooter : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
         }
     }
 

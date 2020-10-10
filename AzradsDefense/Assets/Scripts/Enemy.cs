@@ -5,8 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
-    public float movementSpeed;
-    public int goldDropped;
+    [SerializeField]
+    private float movementSpeed;
+
+    [SerializeField]
+    private int goldDropped;
 
     List<Vector3> enemyPath;
 
@@ -16,7 +19,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movementSpeed = Random.Range(1, 10);
         goldDropped = 10;
 
         enemyPath = new List<Vector3>();
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour
     //Moving the enemies and checking if they are in the window
     public void Move()
     {
-        transform.position += Vector3.up * movementSpeed / 3 * Time.deltaTime;
+        transform.position += Vector3.right * movementSpeed / 3 * Time.deltaTime;
 
         //Checking if the enemy goes outside the window
         if ((transform.position.x >= 7 || transform.position.x <= -7) || (transform.position.y >= 7 || transform.position.y <= -7))

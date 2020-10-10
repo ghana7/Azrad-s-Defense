@@ -48,6 +48,7 @@ public class Tower : MonoBehaviour
     //makes it so the tower is present but cant do anything with it until rebuilt
     public void DestroyTower()
     {
+        isDamaged = true;
         canAttack = false;
 
     }
@@ -55,6 +56,7 @@ public class Tower : MonoBehaviour
     //fix a destroyed tower
     public void Rebuild()
     {
+        isDamaged = false;
         canAttack = true;
         healthClass.health = healthClass.maxHealth;
     }
