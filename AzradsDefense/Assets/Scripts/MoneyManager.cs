@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
-    private uint doubloons;
-    private uint doubloonsPerSecond;
+    private int doubloons;
+    private int doubloonsPerSecond;
     private float timer;
 
     // Start is called before the first frame update
@@ -32,14 +32,14 @@ public class MoneyManager : MonoBehaviour
     }
 
     //adds the specified amount of money
-    public void AddMoney(uint donations)
+    public void AddMoney(int donations)
     {
         doubloons += donations;
     }
 
     //if the player does not have enough doubloons, returns false
     //if the player does, removes that many doubloons and returns true
-    public bool RemoveMoney(uint expenditure)
+    public bool RemoveMoney(int expenditure)
     {
         if (doubloons >= expenditure)
         {

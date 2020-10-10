@@ -11,7 +11,7 @@ public class WaveManager : MonoBehaviour
     public GameObject enemy;
 
     //WHEN AN ENEMY DIES NEED TO CHANGE THIS
-    public uint enemiesLeft;
+    public int enemiesLeft;
 
     private float timer;
     private float secondsBetweenSpawns;
