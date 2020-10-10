@@ -24,26 +24,18 @@ public class Health : MonoBehaviour
     //passed value would have a negative value if losing health 
     public void ChangeHealth(int value)
     {
-        if(health == 0)
-        {
-            towerClass.DestroyTower();
-        }
-        if(health < maxHealth)
-        {
-            towerClass.isDamaged = true;
-        }
         health += value;
 
         if (health <= 0)
         {
             if(gameObject.GetComponent<Tower>() != null)
             {
-                //gameObject.GetComponent<Tower>().DestroyTower();
+                gameObject.GetComponent<Tower>().DestroyTower();
             }
 
             if(gameObject.GetComponent<Enemy>() != null)
             {
-                //gameObject.GetComponent<Enemy>().FullDestroy();
+                gameObject.GetComponent<Enemy>().FullDestroy();
             }
         }
     }
