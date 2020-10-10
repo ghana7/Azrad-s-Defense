@@ -14,8 +14,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> enemyType;
 
-    //WHEN AN ENEMY DIES NEED TO CHANGE THIS  <<<<<<<<<<<
-    private int enemiesLeft;
+    [HideInInspector]
+    public static int enemiesLeft;
 
     private float timer;
     private float secondsBetweenSpawns;
@@ -36,7 +36,6 @@ public class WaveManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= secondsBetweenSpawns)
         {
-            //FIX LOCATION
             GameObject newEnemy = Instantiate(enemyType[enemiesToSpawn[0]], LevelManager.instance.spawnLocation, Quaternion.identity);
             enemiesToSpawn.RemoveAt(0);
             timer = 0.0f;
