@@ -14,8 +14,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> enemyType;
 
-    [HideInInspector]
-    public static int enemiesLeft;
+    private int enemiesLeft;
 
     private float timer;
     private float secondsBetweenSpawns;
@@ -51,5 +50,10 @@ public class WaveManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void RemoveEnemy()
+    {
+        enemiesLeft--;
     }
 }
