@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     /// <summary>
     /// The GameObject that is the target of the projectile
     /// </summary>
-    private GameObject target;
+    public GameObject target;
     /// <summary>
     /// The amount of damage dealt by the projectile
     /// </summary>
