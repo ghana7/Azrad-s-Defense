@@ -23,7 +23,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         timer = 0.0f;
-        secondsBetweenSpawns = 5.0f;
+        secondsBetweenSpawns = 1.0f;
         enemiesLeft = enemiesToSpawn.Count;
 
         instance = this;
@@ -35,9 +35,12 @@ public class WaveManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= secondsBetweenSpawns)
         {
-            GameObject newEnemy = Instantiate(enemyType[enemiesToSpawn[0]], LevelManager.instance.spawnLocation, Quaternion.identity);
-            enemiesToSpawn.RemoveAt(0);
-            timer = 0.0f;
+            if (enemiesToSpawn.Count > 0)
+            {
+                GameObject newEnemy = Instantiate(enemyType[enemiesToSpawn[0]], LevelManager.instance.spawnLocation, Quaternion.identity);
+                enemiesToSpawn.RemoveAt(0);
+                timer = 0.0f;
+            }
         }
     }
 

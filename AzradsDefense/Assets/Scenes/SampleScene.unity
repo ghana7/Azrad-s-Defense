@@ -1834,7 +1834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2b8342bf7680b4cb4760e9b650311c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLocation: {x: 0, y: 0, z: 0}
+  spawnLocation: {x: -2, y: 0, z: 0}
 --- !u!4 &1440198210
 Transform:
   m_ObjectHideFlags: 0

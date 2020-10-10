@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     [HideInInspector]
     public static LevelManager instance;
 
-    [HideInInspector]
+    //[HideInInspector]
     public Vector3 spawnLocation;
 
     private List<List<int>> waves;
@@ -17,9 +17,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnLocation = new Vector3(0, 0, 0);
+        //spawnLocation = new Vector3(0, 0, 0); //change this if/when the spawn location is made hidden again
         wavesSpawned = 0;
-        //waves = new List<int> { 0, 0, 0, 0, 0 };
         waves = new List<List<int>>();
         HardcodeWave();
         instance = this;
@@ -46,7 +45,8 @@ public class LevelManager : MonoBehaviour
 
     private void HardcodeWave()
     {
-        waves.Add(new List<int> { 0, 0, 0, 0, 0 });
-        waves.Add(new List<int> { 0, 0 });
+        waves.Add(new List<int> { 0, 0, 0, 0, 0, 0 }); //last wave to spawn
+        waves.Add(new List<int> { 0, 0, 0, 0 });
+        waves.Add(new List<int> { 0, 0, 0 }); //first wave to spawn
     }
 }
