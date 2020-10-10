@@ -11,6 +11,7 @@ public enum TypeOfTower
 }
 public class Tower : MonoBehaviour
 {
+    public GameObject towerPrefab;
     public TypeOfTower towerType;
     public bool canTravel;
     public List<Vector3> travelPoints;
@@ -18,12 +19,14 @@ public class Tower : MonoBehaviour
     public int price;
     public bool isDamaged;
     public bool canAttack;
+    Health healthClass;
 
     // Start is called before the first frame update
     void Start()
     {
         isDamaged = false;
         canAttack = true;
+        healthClass = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -31,4 +34,34 @@ public class Tower : MonoBehaviour
     {
         
     }
+
+    //places the tower onto the map
+    public void Place(Vector3 position, TypeOfTower type)
+    {
+        towerType = type;
+        healthClass.maxHealth = 50;
+        healthClass.health = 50;
+        Instantiate(towerPrefab, position, Quaternion.identity);
+    }
+
+    //makes it so the tower is present but cant do anything with it until rebuilt
+    public void DestroyTower()
+    {
+        canAttack = false;
+
+    }
+
+    //fix a destroyed tower
+    public void Rebuild()
+    {
+        canAttack = true;
+        healthClass.health = healthClass.maxHealth;
+    }
+
+    //completely get rid of a tower
+    public void FullDestroy()
+    {
+        Destroy(this);
+    }
 }
+

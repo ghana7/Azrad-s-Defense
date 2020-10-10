@@ -4,27 +4,12 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject enemy;
-    List<GameObject> enemyList;
-    List<Vector3> enemyPath;
-
-    [SerializeField]
-    float timer;
-    bool counter;
-
-    public GameObject mapManager;
-    Map mapScript;
 
     // Start is called before the first frame update
     void Start()
     {
         counter = true;
         enemyList = new List<GameObject>();
-        enemyPath = new List<Vector3>();
-
-        mapScript = mapManager.GetComponent<Map>();
-
-        enemyPath = mapScript.setPath();
     }
 
     // Update is called once per frame
@@ -49,29 +34,8 @@ public class EnemyManager : MonoBehaviour
         Move();
     }
 
-    //Moving the enemies and checking if they are in the window
-    public void Move()
-    {
-        for (int i = 0; i < enemyList.Count; i++)
-        {
-            enemyList[i].transform.position += Vector3.up * enemyList[i].GetComponent<Enemy>().movementSpeed / 3 * Time.deltaTime;
-
-            //Checking if the enemy goes outside the window
-            if ((enemyList[i].transform.position.x >= 7 || enemyList[i].transform.position.x <= -7) || (enemyList[i].transform.position.y >= 7 || enemyList[i].transform.position.y <= -7))
-            {
-                FullDestroy(enemyList[i]);
-            }
-        }
-    }
-
     public void Behavior()
     {
 
-    }
-
-    void FullDestroy(GameObject enemy)
-    {
-        Destroy(enemy);
-        enemyList.Remove(enemy);
     }
 }
