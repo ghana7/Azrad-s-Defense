@@ -39,7 +39,7 @@ public class Tower : MonoBehaviour
     }
 
     //places the tower onto the map
-    public void Place(Vector3 position, TypeOfTower type)
+    public void Place(Vector3 position)
     {
         Instantiate(towerPrefab, position, Quaternion.identity);
     }
