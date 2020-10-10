@@ -17,8 +17,10 @@ public class Projectile : MonoBehaviour
     /// How fast the projectile moves, in units per second
     /// </summary>
     [SerializeField]
-    private float speed;
+    protected float speed;
 
+    [SerializeField]
+    private GameObject explodeParticleWrapper;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,15 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(target == null)
+        {
+            DetachParticles();
+            Destroy(gameObject);
+        } else
+        {
+            Move();
+
+        }
     }
 
     /// <summary>
@@ -36,9 +46,9 @@ public class Projectile : MonoBehaviour
     /// </summary>
     protected virtual void Hit()
     {
-        
         target.GetComponent<Health>().ChangeHealth(-damage);
         Debug.Log("hit");
+        DetachParticles();
         Destroy(gameObject);
     }
 
@@ -55,5 +65,21 @@ public class Projectile : MonoBehaviour
         {
             transform.position += displacement.normalized * speed * Time.deltaTime;
         }
+    }
+
+    private void DetachParticles()
+    {
+        foreach (ParticleSystem ps in GetComponentsInChildren<ParticleSystem>())
+        {
+            ParticleSystem.EmissionModule em = ps.emission;
+            em.rateOverTime = 0;
+        }
+        if(explodeParticleWrapper != null)
+        {
+            explodeParticleWrapper.GetComponent<ParticleSystem>().Play();
+
+        }
+        transform.DetachChildren();
+
     }
 }

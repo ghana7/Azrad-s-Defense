@@ -185,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113220974
 GameObject:
@@ -565,7 +565,7 @@ RectTransform:
   - {fileID: 549110112}
   - {fileID: 644714383}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1064,6 +1064,8 @@ GameObject:
   - component: {fileID: 852760975}
   - component: {fileID: 852760978}
   - component: {fileID: 852760979}
+  - component: {fileID: 852760981}
+  - component: {fileID: 852760980}
   m_Layer: 0
   m_Name: ship
   m_TagString: Untagged
@@ -1083,11 +1085,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c3c612a2eca2b4686638d243dcb5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1379301172046988977, guid: bb94d1148fa6d234b91c074fe219ee95,
+  projectilePrefab: {fileID: 1379301172046988977, guid: dadb4d3ccce77744c9ed1b0bf1dbeed8,
     type: 3}
   cannonObject: {fileID: 1393160361}
   range: 2
-  shotsPerSecond: 0
+  shotsPerSecond: 1
 --- !u!212 &852760976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1146,12 +1148,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852760974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1393160362}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &852760978
 CircleCollider2D:
@@ -1190,6 +1192,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &852760980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852760974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87076564ba21f5f4d9b9d2ca4340ecf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 0}
+--- !u!114 &852760981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852760974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b708e20a02528e4288e21cf293764e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
 --- !u!1 &912503523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1589,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160560880
 GameObject:
@@ -2221,7 +2250,7 @@ PrefabInstance:
     - target: {fileID: 8353007643696207698, guid: 9e35c28fe78e2664fba9c6a57e42d9cb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8353007643696207698, guid: 9e35c28fe78e2664fba9c6a57e42d9cb,
         type: 3}
