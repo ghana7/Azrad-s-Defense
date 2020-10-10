@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField]
-    private GameObject projectilePrefab;
+    protected GameObject[] projectilePrefabs;
 
     [SerializeField]
     private GameObject cannonObject;
@@ -20,7 +20,7 @@ public class Shooter : MonoBehaviour
 
     private bool isEnemy;
 
-    private GameObject currentTarget;
+    protected GameObject currentTarget;
 
     private List<GameObject> targetsInRange;
     private CircleCollider2D rangeCollider;
@@ -53,7 +53,7 @@ public class Shooter : MonoBehaviour
             if(shotCooldown >= secondsPerShot)
             {
             
-            Shoot();
+            Shoot(0);
             shotCooldown -= secondsPerShot;
             }
         }
@@ -156,11 +156,11 @@ public class Shooter : MonoBehaviour
     /// <summary>
     /// Fires a projectile at the current target
     /// </summary>
-    private void Shoot()
+    public virtual void Shoot(int index)
     {
-        if(projectilePrefab != null)
+        if(projectilePrefabs.Length > index)
         {
-            GameObject projectileInstance = Instantiate(projectilePrefab);
+            GameObject projectileInstance = Instantiate(projectilePrefabs[index]);
             projectileInstance.transform.position = transform.position;
             projectileInstance.GetComponent<Projectile>().target = currentTarget;
         }
