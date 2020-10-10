@@ -33,6 +33,18 @@ public class Health : MonoBehaviour
             towerClass.isDamaged = true;
         }
         health += value;
-        Debug.Log("changed health by " + value);
+
+        if (health <= 0)
+        {
+            if(gameObject.GetComponent<Tower>() != null)
+            {
+                //gameObject.GetComponent<Tower>().DestroyTower();
+            }
+
+            if(gameObject.GetComponent<Enemy>() != null)
+            {
+                //gameObject.GetComponent<Enemy>().FullDestroy();
+            }
+        }
     }
 }

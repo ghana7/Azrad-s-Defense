@@ -7,16 +7,44 @@ public class Enemy : MonoBehaviour
     public float movementSpeed;
     public int goldDropped;
 
+    List<Vector3> enemyPath;
+
+    public GameObject mapManager;
+    Map mapScript;
+
     // Start is called before the first frame update
     void Start()
     {
         movementSpeed = Random.Range(1, 10);
         goldDropped = 10;
 
+        enemyPath = new List<Vector3>();
+
+        //mapManager = GameObject.Find("MapManager");
+        //mapScript = mapManager.GetComponent<Map>();
+
+        //enemyPath = mapScript.setPath();
     }
 
     void Update()
     {
-       
+        Move();
+    }
+
+    //Moving the enemies and checking if they are in the window
+    public void Move()
+    {
+        transform.position += Vector3.up * movementSpeed / 3 * Time.deltaTime;
+
+        //Checking if the enemy goes outside the window
+        if ((transform.position.x >= 7 || transform.position.x <= -7) || (transform.position.y >= 7 || transform.position.y <= -7))
+        {
+            //FullDestroy();
+        }
+    }
+
+    void FullDestroy(GameObject enemy)
+    {
+        Destroy(enemy);
     }
 }
