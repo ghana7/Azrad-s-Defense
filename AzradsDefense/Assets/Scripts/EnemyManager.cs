@@ -8,22 +8,21 @@ public class EnemyManager : MonoBehaviour
     List<GameObject> enemyList;
     List<Vector3> enemyPath;
 
-    GameObject mapManager;
+    [SerializeField]
+    float timer;
+    bool counter;
+
+    public GameObject mapManager;
     Map mapScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        counter = true;
         enemyList = new List<GameObject>();
         enemyPath = new List<Vector3>();
 
-        mapManager = GameObject.Find("MapManager");
         mapScript = mapManager.GetComponent<Map>();
-
-        for (int i = 0; i < 10; i++)
-        {
-            enemyList.Add(Instantiate(enemy, new Vector3(Random.Range(-3, 3), -6), Quaternion.identity));
-        }
 
         enemyPath = mapScript.setPath();
     }
@@ -31,6 +30,22 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemyList.Count < 10 && timer >= 1.5f)
+        {
+            enemyList.Add(Instantiate(enemy, new Vector3(Random.Range(-3, 3), -6), Quaternion.identity));
+            timer = 0.0f;
+        }
+
+        if (counter)
+        {
+            timer += 0.005f;
+        }
+
+        if (enemyList.Count == 10)
+        {
+            counter = false;
+        }
+
         Move();
     }
 
