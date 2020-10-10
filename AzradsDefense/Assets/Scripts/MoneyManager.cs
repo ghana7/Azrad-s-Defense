@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
-<<<<<<< HEAD
     [HideInInspector]
     public static MoneyManager instance;
 
-=======
-    public static MoneyManager instance;
->>>>>>> 2b3518b2bac95d50d06f819235e245a7e24c8ddd
     private int doubloons;
     private int doubloonsPerSecond;
     private float timer;
