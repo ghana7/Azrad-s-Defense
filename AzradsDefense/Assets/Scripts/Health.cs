@@ -11,7 +11,6 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -24,6 +23,18 @@ public class Health : MonoBehaviour
     public void ChangeHealth(int value)
     {
         health += value;
-        Debug.Log("changed health by " + value);
+
+        if (health <= 0)
+        {
+            if(gameObject.GetComponent<Tower>() != null)
+            {
+                gameObject.GetComponent<Tower>().DestroyTower();
+            }
+
+            if(gameObject.GetComponent<Enemy>() != null)
+            {
+                gameObject.GetComponent<Enemy>().FullDestroy();
+            }
+        }
     }
 }

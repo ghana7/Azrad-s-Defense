@@ -15,6 +15,10 @@ public class Shooter : MonoBehaviour
 
     [SerializeField]
     private float shotsPerSecond;
+    private float secondsPerShot;
+    private float shotCooldown;
+
+    private bool isEnemy;
 
     private GameObject currentTarget;
 
@@ -26,11 +30,15 @@ public class Shooter : MonoBehaviour
         rangeCollider = GetComponent<CircleCollider2D>();
 
         targetsInRange = new List<GameObject>();
+
+
+        isEnemy = GetComponent<Enemy>() != null;
     }
     // Start is called before the first frame update
     void Start()
     {
-        rangeCollider.radius = range;   
+        rangeCollider.radius = range;
+        secondsPerShot = 1 / shotsPerSecond;
     }
 
     // Update is called once per frame
@@ -38,7 +46,19 @@ public class Shooter : MonoBehaviour
     {
         DebugMove(3);
         Aim();
-        foreach(GameObject g in targetsInRange)
+        if (currentTarget != null)
+        {
+
+            shotCooldown += Time.deltaTime;
+            if(shotCooldown >= secondsPerShot)
+            {
+            
+            Shoot();
+            shotCooldown -= secondsPerShot;
+            }
+        }
+
+        foreach (GameObject g in targetsInRange)
         {
             Debug.DrawLine(transform.position, g.transform.position);
         }
@@ -62,20 +82,22 @@ public class Shooter : MonoBehaviour
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //check to make sure object has a health script and can be shot
         if(other.gameObject.GetComponent<Health>() != null)
         {
-            targetsInRange.Add(other.gameObject);
-            if(currentTarget == null)
+            //next, check that the object is of the opposite type of the shooter
+            //i.e., towers only target enemies, enemies only target towers
+            if (isEnemy && other.gameObject.GetComponent<Tower>() || !isEnemy && other.gameObject.GetComponent<Enemy>())
             {
-                UpdateTarget();
+                targetsInRange.Add(other.gameObject);
+                if (currentTarget == null)
+                {
+                    UpdateTarget();
+                }
             }
         }
     }
@@ -84,10 +106,15 @@ public class Shooter : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Health>() != null)
         {
-            targetsInRange.Remove(other.gameObject);
-            if(other.gameObject == currentTarget)
+            //next, check that the object is of the opposite type of the shooter
+            //i.e., towers only target enemies, enemies only target towers
+            if (isEnemy && other.gameObject.GetComponent<Tower>() || !isEnemy && other.gameObject.GetComponent<Enemy>())
             {
-                UpdateTarget();
+                targetsInRange.Remove(other.gameObject);
+                if (other.gameObject == currentTarget)
+                {
+                    UpdateTarget();
+                }
             }
         }
     }

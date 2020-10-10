@@ -9,21 +9,41 @@ public enum TypeOfTower
     sea,
     both
 }
+[RequireComponent(typeof(Health))]
 public class Tower : MonoBehaviour
 {
-    public TypeOfTower towerType;
-    public bool canTravel;
-    public List<Vector3> travelPoints;
-    float movementSpeed;
-    public int price;
-    public bool isDamaged;
-    public bool canAttack;
+    private Health healthClass;
+
+    [SerializeField]
+    private GameObject towerPrefab;
+
+    [SerializeField]
+    private TypeOfTower towerType;
+
+    [SerializeField]
+    private bool canTravel;
+
+    [SerializeField]
+    private List<Vector3> travelPoints;
+
+    [SerializeField]
+    private float movementSpeed;
+
+    [SerializeField]
+    private int price;
+
+    [SerializeField]
+    private bool isDamaged;
+
+    [SerializeField]
+    private bool canAttack;
 
     // Start is called before the first frame update
     void Start()
     {
         isDamaged = false;
         canAttack = true;
+        healthClass = gameObject.GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -31,4 +51,33 @@ public class Tower : MonoBehaviour
     {
         
     }
+
+    //places the tower onto the map
+    public void Place(Vector3 position)
+    {
+        Instantiate(towerPrefab, position, Quaternion.identity);
+    }
+
+    //makes it so the tower is present but cant do anything with it until rebuilt
+    public void DestroyTower()
+    {
+        isDamaged = true;
+        canAttack = false;
+
+    }
+
+    //fix a destroyed tower
+    public void Rebuild()
+    {
+        isDamaged = false;
+        canAttack = true;
+        healthClass.health = healthClass.maxHealth;
+    }
+
+    //completely get rid of a tower
+    public void FullDestroy()
+    {
+        Destroy(gameObject);
+    }
 }
+
