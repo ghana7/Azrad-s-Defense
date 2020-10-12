@@ -28,15 +28,4 @@ public class Map : MonoBehaviour
     {
         return true;
     }
-
-    public List<Vector3> setPath()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            pathToFollow.Add(new Vector3(0, (i - 5)));
-        }
-
-        return pathToFollow;
-
-    }
 }
