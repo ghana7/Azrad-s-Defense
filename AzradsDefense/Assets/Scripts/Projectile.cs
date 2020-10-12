@@ -44,14 +44,18 @@ public class Projectile : MonoBehaviour
     /// <summary>
     /// Behavior for when a projectile hits its target
     /// </summary>
-    protected virtual void Hit()
+    protected virtual void HitTarget()
     {
-        target.GetComponent<Health>().ChangeHealth(-damage);
-        Debug.Log("hit");
-        DetachParticles();
+        Hit(target);
         Destroy(gameObject);
     }
 
+    public virtual void Hit(GameObject obj)
+    {
+        obj.GetComponent<Health>().ChangeHealth(-damage);
+        Debug.Log("hit");
+        DetachParticles();
+    }
     /// <summary>
     /// Movement behavior for a projectile on each frame
     /// </summary>
@@ -60,7 +64,7 @@ public class Projectile : MonoBehaviour
         Vector3 displacement = target.transform.position - transform.position;
         if (displacement.sqrMagnitude <= speed * Time.deltaTime * speed * Time.deltaTime)
         {
-            Hit();
+            HitTarget();
         } else
         {
             transform.position += displacement.normalized * speed * Time.deltaTime;

@@ -216,6 +216,8 @@ MonoBehaviour:
   cannonObject: {fileID: 3993935179621538102}
   range: 2
   shotsPerSecond: 1
+  rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
+    type: 3}
 --- !u!58 &3993935181220868109
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -279,11 +281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87076564ba21f5f4d9b9d2ca4340ecf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
-  towerType: 0
+  towerPrefab: {fileID: 3993935181220868113}
+  towerType: 1
   canTravel: 0
   travelPoints: []
   movementSpeed: 0
   price: 100
   isDamaged: 0
-  canAttack: 0
+  canAttack: 1

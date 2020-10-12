@@ -22,8 +22,12 @@ public class Shooter : MonoBehaviour
 
     protected GameObject currentTarget;
 
-    private List<GameObject> targetsInRange;
+    protected List<GameObject> targetsInRange;
     private CircleCollider2D rangeCollider;
+
+    [SerializeField]
+    private GameObject rangeCylPrefab;
+    private GameObject rangeCylInstance;
 
     private void Awake()
     {
@@ -39,6 +43,8 @@ public class Shooter : MonoBehaviour
     {
         rangeCollider.radius = range;
         secondsPerShot = 1 / shotsPerSecond;
+        rangeCylInstance = Instantiate(rangeCylPrefab, transform);
+        rangeCylInstance.transform.localScale = new Vector3(range * 2, range * 2, range * 2);
     }
 
     // Update is called once per frame
@@ -46,15 +52,17 @@ public class Shooter : MonoBehaviour
     {
         DebugMove(3);
         Aim();
+        shotCooldown += Time.deltaTime;
+        if(shotCooldown >= secondsPerShot)
+        {
+            shotCooldown = secondsPerShot;
+        }
         if (currentTarget != null)
         {
-
-            shotCooldown += Time.deltaTime;
             if(shotCooldown >= secondsPerShot)
             {
-            
-            Shoot(0);
-            shotCooldown -= secondsPerShot;
+                Shoot(0);
+                shotCooldown -= secondsPerShot;
             }
         }
 
@@ -62,6 +70,12 @@ public class Shooter : MonoBehaviour
         {
             Debug.DrawLine(transform.position, g.transform.position);
         }
+
+        if(rangeCylInstance != null)
+        {
+            rangeCylInstance.SetActive(targetsInRange.Count > 0);
+        }
+        
     }
 
     private void DebugMove(float speed)
@@ -138,7 +152,7 @@ public class Shooter : MonoBehaviour
     /// <summary>
     /// Rotates to face the current target
     /// </summary>
-    private void Aim()
+    protected virtual void Aim()
     {
         if (currentTarget != null)
         {

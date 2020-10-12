@@ -34,7 +34,7 @@ public class RocketProjectile : Projectile
         
         if (displacement.sqrMagnitude <= speed * Time.deltaTime * speed * Time.deltaTime)
         {
-            Hit();
+            HitTarget();
         }
         else
         {
