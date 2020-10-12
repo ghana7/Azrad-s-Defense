@@ -98,7 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   goldDropped: 0
+  pathNode: {fileID: 4820780077011296452, guid: aff4d8dd0728bd94cbd57f6913d5317f,
+    type: 3}
   enemyPath: []
+  position: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
 --- !u!58 &-5734070884104996698
 CircleCollider2D:
@@ -128,5 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b708e20a02528e4288e21cf293764e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  maxHealth: 2
+  health: 10
+  maxHealth: 10
