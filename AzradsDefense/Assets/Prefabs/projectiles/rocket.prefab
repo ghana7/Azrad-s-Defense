@@ -102,6 +102,8 @@ MonoBehaviour:
   explodeParticleWrapper: {fileID: 2751073605491414421}
   randomVelocity: 2
   randomTime: 1
+  flySound: example_fireworkwhistle
+  impactSound: example_fireworkblast
 --- !u!1 &2751073605491414421
 GameObject:
   m_ObjectHideFlags: 0
