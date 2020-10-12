@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
+    // Gets set by UIShop
     [SerializeField]
     private GameObject prefab;
     [SerializeField]
@@ -17,12 +18,18 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIShop selection;
 
+    // Set before launch
+    [SerializeField]
+    private Text description;
+
     private Tower tower;
+    private string towerText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        towerText = "";
+        description.text = towerText;
     }
 
     // Update is called once per frame
@@ -38,6 +45,18 @@ public class UIManager : MonoBehaviour
         tower = prefab.GetComponent<Tower>();
         cost = tower.GetPrice();
         selected = true;
+        towerText = tower.GetDescription();
+        description.text = towerText;
+    }
+
+    public void SetDescription(string text)
+    {
+        description.text = text;
+    }
+
+    public void SetDescriptionToSelection()
+    {
+        description.text = towerText;
     }
 
     public void Buy(GameObject selection)
@@ -54,5 +73,15 @@ public class UIManager : MonoBehaviour
         // get rid of tower on mouse
 
         // refund money
+    }
+
+    public bool isSelected()
+    {
+        return selected;
+    }
+
+    public UIShop getShop()
+    {
+        return selection;
     }
 }

@@ -287,3 +287,4 @@ MonoBehaviour:
   price: 100
   isDamaged: 0
   canAttack: 1
+  description: Shoots cannonballs that track enemies. Slow fire rate.

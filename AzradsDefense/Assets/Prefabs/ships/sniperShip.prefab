@@ -270,6 +270,7 @@ MonoBehaviour:
   price: 250
   isDamaged: 0
   canAttack: 1
+  description: Long range detection.
 --- !u!114 &6171872025592738723
 MonoBehaviour:
   m_ObjectHideFlags: 0
