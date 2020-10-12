@@ -26,7 +26,6 @@ public class WaveManager : MonoBehaviour
     {
         timer = 0.0f;
         secondsBetweenSpawns = 1.0f;
-        Debug.Log(enemiesLeft);
 
         instance = this;
     }
