@@ -46,15 +46,17 @@ public class Shooter : MonoBehaviour
     {
         DebugMove(3);
         Aim();
+        shotCooldown += Time.deltaTime;
+        if(shotCooldown >= secondsPerShot)
+        {
+            shotCooldown = secondsPerShot;
+        }
         if (currentTarget != null)
         {
-
-            shotCooldown += Time.deltaTime;
             if(shotCooldown >= secondsPerShot)
             {
-            
-            Shoot(0);
-            shotCooldown -= secondsPerShot;
+                Shoot(0);
+                shotCooldown -= secondsPerShot;
             }
         }
 
