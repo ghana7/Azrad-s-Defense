@@ -262,14 +262,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87076564ba21f5f4d9b9d2ca4340ecf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
-  towerType: 0
+  towerPrefab: {fileID: 6171872025592738720}
+  towerType: 1
   canTravel: 0
   travelPoints: []
   movementSpeed: 0
   price: 250
   isDamaged: 0
-  canAttack: 0
+  canAttack: 1
 --- !u!114 &6171872025592738723
 MonoBehaviour:
   m_ObjectHideFlags: 0
