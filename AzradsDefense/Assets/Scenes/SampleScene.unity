@@ -3406,6 +3406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesToSpawn: 
+  enemiesLeft: 0
   enemyType:
   - {fileID: 5351607224447606343, guid: 88115f0b4b365f44b85d840868c999d0, type: 3}
 --- !u!4 &1810290429

@@ -34,19 +34,21 @@ public class LevelManager : MonoBehaviour
         if(WaveManager.instance.Completed() && wavesSpawned == waves.Count)
         {
             //END THE LEVEL
+            Debug.Log("Level Over");
         }
     }
 
     private void SendWave()
     {
         WaveManager.instance.enemiesToSpawn = waves[wavesSpawned];
+        WaveManager.instance.enemiesLeft = waves[wavesSpawned].Count;
         wavesSpawned++;
     }
 
     private void HardcodeWave()
     {
-        waves.Add(new List<int> { 0, 0, 0, 0, 0, 0 }); //last wave to spawn
+        waves.Add(new List<int> { 0, 0, 0, 0, 0, 0 }); //first wave to spawn
         waves.Add(new List<int> { 0, 0, 0, 0 });
-        waves.Add(new List<int> { 0, 0, 0 }); //first wave to spawn
+        waves.Add(new List<int> { 0, 0, 0 }); //last wave to spawn
     }
 }

@@ -10,11 +10,13 @@ public class WaveManager : MonoBehaviour
     public static WaveManager instance;
     [HideInInspector]
     public List<int> enemiesToSpawn;
+    [HideInInspector]
+    public int enemiesLeft;
 
     [SerializeField]
     private List<GameObject> enemyType;
 
-    private int enemiesLeft;
+    
 
     private float timer;
     private float secondsBetweenSpawns;
@@ -24,7 +26,7 @@ public class WaveManager : MonoBehaviour
     {
         timer = 0.0f;
         secondsBetweenSpawns = 1.0f;
-        enemiesLeft = enemiesToSpawn.Count;
+        Debug.Log(enemiesLeft);
 
         instance = this;
     }
