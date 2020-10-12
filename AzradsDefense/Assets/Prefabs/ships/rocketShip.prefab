@@ -216,6 +216,8 @@ MonoBehaviour:
   cannonObject: {fileID: 3993935179621538102}
   range: 2
   shotsPerSecond: 1
+  rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
+    type: 3}
 --- !u!58 &3993935181220868109
 CircleCollider2D:
   m_ObjectHideFlags: 0

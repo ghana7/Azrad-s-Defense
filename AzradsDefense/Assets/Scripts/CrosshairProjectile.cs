@@ -19,7 +19,7 @@ public class CrosshairProjectile : Projectile
         base.Move();
         lr.SetPositions(new Vector3[] { transform.position, shooter.transform.position });
     }
-    protected override void Hit()
+    public override void Hit(GameObject obj)
     {
         shooter.GetComponent<Shooter>().Shoot(1);
         Destroy(gameObject);
