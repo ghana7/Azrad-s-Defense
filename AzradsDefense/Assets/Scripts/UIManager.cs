@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
             if(held == false)
             {
                 heldTower = Instantiate(tower, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f), Quaternion.identity);
+                heldTower.canAttack = false;
                 held = true;
             }
             else

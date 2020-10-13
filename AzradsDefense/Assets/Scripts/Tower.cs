@@ -12,6 +12,7 @@ public enum TypeOfTower
 [RequireComponent(typeof(Health))]
 public class Tower : MonoBehaviour
 {
+    public bool canAttack;
     private Health healthClass;
 
     [SerializeField]
@@ -34,9 +35,6 @@ public class Tower : MonoBehaviour
 
     [SerializeField]
     private bool isDamaged;
-
-    [SerializeField]
-    private bool canAttack;
 
     [SerializeField]
     private string description;
