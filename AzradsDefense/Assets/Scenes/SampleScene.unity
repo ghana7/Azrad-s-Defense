@@ -657,6 +657,7 @@ MonoBehaviour:
   towerOnMouse: {fileID: 0}
   holdTower: 0
   selection: {fileID: 0}
+  moneyManager: {fileID: 1148471777}
 --- !u!4 &417426303
 Transform:
   m_ObjectHideFlags: 0

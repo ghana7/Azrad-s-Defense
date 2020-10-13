@@ -44,7 +44,7 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnClick()
     {
-        if (moneyManager.GetMoney() > tower.GetPrice())
+        if (moneyManager.GetMoney() >= tower.GetPrice())
         {
             uiManager.SetSelectedTower(this);
         }    
