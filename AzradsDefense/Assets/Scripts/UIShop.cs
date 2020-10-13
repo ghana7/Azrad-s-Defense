@@ -9,17 +9,13 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField]
     private GameObject prefab;
     [SerializeField]
-    private string information;
-    [SerializeField]
     private UIManager uiManager;
     [SerializeField]
     private MoneyManager moneyManager;
     [SerializeField]
     private Button button;
 
-    [SerializeField]
-    private Text description;
-
+    private string prevText;
     private Tower tower;
     
 
@@ -57,11 +53,11 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        description.text = information;
+        uiManager.SetDescription(tower.GetDescription());
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        description.text = "";
+        uiManager.SetDescriptionToSelection();
     }
 }

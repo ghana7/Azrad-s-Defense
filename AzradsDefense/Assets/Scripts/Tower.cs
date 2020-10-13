@@ -38,6 +38,9 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private bool canAttack;
 
+    [SerializeField]
+    private string description;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +87,12 @@ public class Tower : MonoBehaviour
     public int GetPrice()
     {
         return price;
+    }
+
+    //return description of tower
+    public string GetDescription()
+    {
+        return description;
     }
 }
 
