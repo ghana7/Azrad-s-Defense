@@ -73,7 +73,16 @@ public class Shooter : MonoBehaviour
 
         if(rangeCylInstance != null)
         {
-            rangeCylInstance.SetActive(targetsInRange.Count > 0);
+            float sqrDist = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).sqrMagnitude;
+            if(sqrDist <= 0.25f)
+            {
+                rangeCylInstance.SetActive(true);
+
+            } else
+            {
+                rangeCylInstance.SetActive(false);
+
+            }
         }
         
     }
