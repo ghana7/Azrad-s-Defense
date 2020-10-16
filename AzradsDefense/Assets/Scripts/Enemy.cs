@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
             
         }
         Vector3 direction = displacement.normalized;
-
+        transform.up = -direction;
         transform.position += direction * movementSpeed * Time.deltaTime;
     }
 

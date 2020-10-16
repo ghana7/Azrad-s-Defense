@@ -12,7 +12,6 @@ public enum TypeOfTower
 [RequireComponent(typeof(Health))]
 public class Tower : MonoBehaviour
 {
-    public bool canAttack;
     private Health healthClass;
 
     [SerializeField]
@@ -39,12 +38,18 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private string description;
 
+    private Shooter shooter;
+
+    private void Awake()
+    {
+
+        healthClass = gameObject.GetComponent<Health>();
+        shooter = GetComponent<Shooter>();
+    }
     // Start is called before the first frame update
     void Start()
     {
         isDamaged = false;
-        canAttack = true;
-        healthClass = gameObject.GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -56,22 +61,28 @@ public class Tower : MonoBehaviour
     //places the tower onto the map
     public void Place(Vector3 position)
     {
-        Instantiate(towerPrefab, position, Quaternion.identity);
+        GameObject placed = Instantiate(towerPrefab, position, Quaternion.identity);
+        placed.GetComponent<Shooter>().canShoot = true;
     }
 
     //makes it so the tower is present but cant do anything with it until rebuilt
     public void DestroyTower()
     {
         isDamaged = true;
-        canAttack = false;
+        shooter.canShoot = false;
 
+    }
+
+    public void SetCanAttack(bool val)
+    {
+        shooter.canShoot = val;
     }
 
     //fix a destroyed tower
     public void Rebuild()
     {
         isDamaged = false;
-        canAttack = true;
+        shooter.canShoot = true;
         healthClass.health = healthClass.maxHealth;
     }
 
@@ -92,5 +103,6 @@ public class Tower : MonoBehaviour
     {
         return description;
     }
+
 }
 

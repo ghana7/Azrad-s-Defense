@@ -22,7 +22,7 @@ public class MoneyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doubloons = 0;
+        doubloons = 100;
         timer = 0.0f;
 
         //change to set doubleloons per second
@@ -39,8 +39,7 @@ public class MoneyManager : MonoBehaviour
         if (timer >= 1.0f)
         {
             AddMoney(doubloonsPerSecond);
-            timer = 0.0f;
-            doubloonsText.text = doubloons.ToString();
+            timer -= 1.0f;
         }
         
     }
@@ -49,6 +48,7 @@ public class MoneyManager : MonoBehaviour
     public void AddMoney(int donations)
     {
         doubloons += donations;
+        doubloonsText.text = doubloons.ToString();
     }
 
     //if the player does not have enough doubloons, returns false
@@ -58,6 +58,8 @@ public class MoneyManager : MonoBehaviour
         if (doubloons >= expenditure)
         {
             doubloons -= expenditure;
+
+            doubloonsText.text = doubloons.ToString();
             return true;
         }
         return false;

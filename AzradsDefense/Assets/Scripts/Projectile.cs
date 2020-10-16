@@ -53,7 +53,6 @@ public class Projectile : MonoBehaviour
     public virtual void Hit(GameObject obj)
     {
         obj.GetComponent<Health>().ChangeHealth(-damage);
-        Debug.Log("hit");
         DetachParticles();
     }
     /// <summary>

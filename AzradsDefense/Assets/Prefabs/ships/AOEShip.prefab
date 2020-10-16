@@ -4888,7 +4888,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 630e898e7f9a31f4fad92d696762a90e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fd9a6bf73364c046bb4f67a7ff13523, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4962,14 +4962,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87076564ba21f5f4d9b9d2ca4340ecf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
+  towerPrefab: {fileID: 3993935181220868113}
   towerType: 0
   canTravel: 0
   travelPoints: []
   movementSpeed: 0
-  price: 100
+  price: 500
   isDamaged: 0
-  canAttack: 0
+  description: Hits all enemies in an area around it.
 --- !u!114 &4975015568938946642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4987,6 +4987,7 @@ MonoBehaviour:
   cannonObject: {fileID: 0}
   range: 1
   shotsPerSecond: 1
+  canShoot: 0
   rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
     type: 3}
   particleWrapper: {fileID: 639998949649687440}

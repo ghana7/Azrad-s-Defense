@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
             if(held == false)
             {
                 heldTower = Instantiate(tower, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f), Quaternion.identity);
-                heldTower.canAttack = false;
+                heldTower.SetCanAttack(false);
                 held = true;
             }
             else
@@ -60,12 +60,12 @@ public class UIManager : MonoBehaviour
             }
             
             //if left mouse button clicked, buy the tower as long as you have enough money
-            if(Input.GetMouseButton(0) && moneyManager.GetMoney() >= tower.GetPrice())
+            if(Input.GetMouseButtonDown(0) && moneyManager.GetMoney() >= tower.GetPrice())
             {
                 Buy();
             }
             //if right mouse button clicked, cancels the hover
-            else if(Input.GetMouseButton(1))
+            else if(Input.GetMouseButtonDown(1))
             {
                 Cancel();
             }
@@ -100,6 +100,13 @@ public class UIManager : MonoBehaviour
         tower.Place(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f));
         //remove tower
         moneyManager.RemoveMoney(tower.GetPrice());
+
+        //if the player can't place another one reasonably soon,
+        //cancel for them
+        if(moneyManager.GetMoney() < tower.GetPrice() - 20)
+        {
+            Cancel();
+        }
     }
 
     public void Cancel()

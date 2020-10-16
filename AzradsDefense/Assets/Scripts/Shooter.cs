@@ -17,6 +17,7 @@ public class Shooter : MonoBehaviour
     private float shotsPerSecond;
     private float secondsPerShot;
     private float shotCooldown;
+    public bool canShoot;
 
     private bool isEnemy;
 
@@ -50,28 +51,26 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DebugMove(3);
-        Aim();
-        shotCooldown += Time.deltaTime;
-        if(shotCooldown >= secondsPerShot)
+        if(canShoot)
         {
-            shotCooldown = secondsPerShot;
-        }
-        if (currentTarget != null)
-        {
+
+            Aim();
+            shotCooldown += Time.deltaTime;
             if(shotCooldown >= secondsPerShot)
             {
-                Shoot(0);
-                shotCooldown -= secondsPerShot;
+                shotCooldown = secondsPerShot;
             }
-        }
+            if (currentTarget != null)
+            {
+                if(shotCooldown >= secondsPerShot)
+                {
+                    Shoot(0);
+                    shotCooldown -= secondsPerShot;
+                }
+            }
 
-        foreach (GameObject g in targetsInRange)
-        {
-            Debug.DrawLine(transform.position, g.transform.position);
         }
-
-        if(rangeCylInstance != null)
+        if (rangeCylInstance != null)
         {
             float sqrDist = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).sqrMagnitude;
             if(sqrDist <= 0.25f)
@@ -85,26 +84,6 @@ public class Shooter : MonoBehaviour
             }
         }
         
-    }
-
-    private void DebugMove(float speed)
-    {
-        if(Input.GetKey(KeyCode.W))
-        {
-            transform.position += Vector3.up * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += Vector3.down * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

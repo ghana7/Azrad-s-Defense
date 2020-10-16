@@ -15,7 +15,11 @@ public class LevelManager : MonoBehaviour
 
     private int wavesSpawned;
     private bool paused;
-    
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +27,6 @@ public class LevelManager : MonoBehaviour
         wavesSpawned = 0;
         waves = new List<List<int>>();
         HardcodeWave();
-        instance = this;
     }
 
     // Update is called once per frame
@@ -52,6 +55,11 @@ public class LevelManager : MonoBehaviour
         if(WaveManager.instance.Completed() && wavesSpawned == waves.Count)
         {
             //END THE LEVEL
+            Debug.Log("Level Ended");
+            level++;
+            wavesSpawned = 0;
+            HardcodeWave();
+            SendWave();
         }
     }
 
@@ -65,23 +73,24 @@ public class LevelManager : MonoBehaviour
     //the waves that are spawned for the level
     private void HardcodeWave()
     {
+        waves.Clear();
         if (level == 0)
         {
-            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0 }); //first wave to spawn
-            waves.Add(new List<int> { 0, 0, 0, 0 });
-            waves.Add(new List<int> { 0, 0, 0 }); //last wave to spawn
+            waves.Add(new List<int> { 0, 0, 0 }); //first wave to spawn
+            waves.Add(new List<int> { 0, 0, 0, 1 });
+            waves.Add(new List<int> { 0, 0, 1, 1, 2 }); //last wave to spawn
         }
         else if (level == 1)
         {
-            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0 }); //first wave to spawn
-            waves.Add(new List<int> { 0, 0, 0, 0 });
-            waves.Add(new List<int> { 0, 0, 0 }); //last wave to spawn
+            waves.Add(new List<int> { 0, 0, 1 }); //first wave to spawn
+            waves.Add(new List<int> { 1, 1, 1, 1 });
+            waves.Add(new List<int> { 1, 1, 1, 1, 1, 2 }); //last wave to spawn
         }
         else if (level == 2)
         {
-            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0 }); //first wave to spawn
-            waves.Add(new List<int> { 0, 0, 0, 0 });
-            waves.Add(new List<int> { 0, 0, 0 }); //last wave to spawn
+            waves.Add(new List<int> { 2, 2, 1, 1, 1, 2, 2 }); //first wave to spawn
+            waves.Add(new List<int> { 2, 2, 2, 2, 3 });
+            waves.Add(new List<int> { 2, 2, 2, 3, 3, 3 }); //last wave to spawn
         }
         else
         {
