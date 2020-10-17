@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LevelManager : MonoBehaviour
     //[HideInInspector]
     public Vector3 spawnLocation;
     public int level;
+    public Button button;
 
     private List<List<int>> waves;
 
