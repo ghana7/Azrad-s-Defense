@@ -103,10 +103,15 @@ public class UIManager : MonoBehaviour
 
         //if the player can't place another one reasonably soon,
         //cancel for them
-        if(moneyManager.GetMoney() < tower.GetPrice() - 20)
-        {
-            Cancel();
-        }
+        //if(moneyManager.GetMoney() < tower.GetPrice() - 20)
+        //{
+        //    Cancel();
+        //}
+
+        //if (moneyManager.RemoveMoney(tower.GetPrice()))
+        //{
+        //    Cancel();
+        //}
     }
 
     public void Cancel()

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,7 +16,6 @@ public class LevelManager : MonoBehaviour
     private List<List<int>> waves;
 
     private int wavesSpawned;
-    private bool paused;
 
     private void Awake()
     {
@@ -33,18 +34,9 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            if (paused)
-            {
-                setSpeed(1);
-                paused = false;
-            }
-            else
-            {
-                setSpeed(0);
-                paused = true;
-            }
+            SceneManager.LoadScene("menu");
         }
 
         //if the player has no health, end the game
@@ -55,7 +47,7 @@ public class LevelManager : MonoBehaviour
         if(WaveManager.instance.Completed() && wavesSpawned == waves.Count)
         {
             //END THE LEVEL
-            Debug.Log("Level Ended");
+            //Debug.Log("Level Ended");
             level++;
             wavesSpawned = 0;
             HardcodeWave();
