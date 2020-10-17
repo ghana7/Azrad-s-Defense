@@ -25,7 +25,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         timer = 0.0f;
-        secondsBetweenSpawns = 1.0f;
+        secondsBetweenSpawns = 0.7f;
 
         instance = this;
     }

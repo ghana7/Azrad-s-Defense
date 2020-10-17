@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
-
     [SerializeField]
     private float movementSpeed;
 
@@ -19,8 +18,7 @@ public class Enemy : MonoBehaviour
     {
         currentNode = 1;
 
-        transform.position = Map.instance.activePath[0];
-        
+        transform.position = Map.instance.activePath[0];  
     }
 
     void Update()
@@ -41,12 +39,12 @@ public class Enemy : MonoBehaviour
             {
                 WaveManager.instance.RemoveEnemy();
                 Destroy(gameObject);
-            } else
+            } 
+            else
             {
                 //recalculate displacement for new next node
                 displacement = Map.instance.activePath[currentNode] - transform.position;
-            }
-            
+            }  
         }
         Vector3 direction = displacement.normalized;
         transform.up = -direction;

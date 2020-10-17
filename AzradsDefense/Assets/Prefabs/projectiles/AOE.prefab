@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  damage: 1
+  damage: 3
   speed: 0
   explodeParticleWrapper: {fileID: 0}

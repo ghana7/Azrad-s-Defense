@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class LevelManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class LevelManager : MonoBehaviour
     //[HideInInspector]
     public Vector3 spawnLocation;
     public int level;
+    public Button button;
 
     private List<List<int>> waves;
 
@@ -24,7 +26,6 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //spawnLocation = new Vector3(0, 0, 0); //change this if/when the spawn location is made hidden again
         wavesSpawned = 0;
         waves = new List<List<int>>();
         HardcodeWave();
@@ -86,9 +87,9 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0 }); //first wave to spawn
-            waves.Add(new List<int> { 0, 0, 0, 0 });
-            waves.Add(new List<int> { 0, 0, 0 }); //last wave to spawn
+            waves.Add(new List<int> { 3, 3, 1, 2, 2, 3 }); //first wave to spawn
+            waves.Add(new List<int> { 3, 1, 2, 2 });
+            waves.Add(new List<int> { 3, 3, 3 }); //last wave to spawn
         }
         
     }

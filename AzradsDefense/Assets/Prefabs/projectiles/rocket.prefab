@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  damage: 10
+  damage: 5
   speed: 7
   explodeParticleWrapper: {fileID: 2751073605491414421}
   randomVelocity: 2
