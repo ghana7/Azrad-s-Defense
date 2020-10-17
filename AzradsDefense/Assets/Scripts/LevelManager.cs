@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public Vector3 spawnLocation;
     public int level;
     public Button button;
+    private bool paused;
 
     private List<List<int>> waves;
 
