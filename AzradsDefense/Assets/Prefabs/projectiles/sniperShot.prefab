@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  damage: 20
+  damage: 10
   speed: 15
   explodeParticleWrapper: {fileID: 1393442433631205545}
 --- !u!1 &1393442433631205545
