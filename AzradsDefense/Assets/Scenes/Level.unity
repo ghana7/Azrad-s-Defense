@@ -4001,17 +4001,22 @@ PrefabInstance:
     - target: {fileID: 305908768686433084, guid: 90e022fad20da0f4d8c3dc816f602bb9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305908768686433084, guid: 90e022fad20da0f4d8c3dc816f602bb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9,
         type: 3}
       propertyPath: m_Name
       value: PopUpUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6700167727259718903, guid: 90e022fad20da0f4d8c3dc816f602bb9,
         type: 3}
