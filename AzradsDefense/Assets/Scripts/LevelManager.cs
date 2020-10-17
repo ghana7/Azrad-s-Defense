@@ -101,7 +101,7 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(float speed) {
         Time.timeScale = speed;
     }
 }
