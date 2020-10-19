@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int goldDropped;
 
+    [SerializeField]
+    private int livesLost;
+
     private int currentNode;
 
     void Awake()
@@ -38,6 +41,7 @@ public class Enemy : MonoBehaviour
             if (currentNode >= Map.instance.activePath.Length)
             {
                 WaveManager.instance.RemoveEnemy();
+                LivesManager.instance.ChangeLives(-livesLost);
                 Destroy(gameObject);
             } 
             else
