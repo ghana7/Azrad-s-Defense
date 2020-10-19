@@ -37,7 +37,7 @@ public class MenuManager : MonoBehaviour
     public void GoToLevel()
     {
         string level = levelToGoTo.ToString();
-        level = string.Concat("level", level);
+        level = string.Concat("Level", level);
         //Debug.Log("Going to '" + level + "'");
         SceneManager.LoadScene(level);
     }
