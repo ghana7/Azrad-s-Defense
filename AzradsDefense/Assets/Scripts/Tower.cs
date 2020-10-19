@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public enum TypeOfTower
 {
@@ -38,17 +38,23 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private string description;
 
+    [SerializeField]
+    private GameObject popUp;
+    RectTransform panel;
+
     private Shooter shooter;
 
     private void Awake()
     {
-
+        
         healthClass = gameObject.GetComponent<Health>();
         shooter = GetComponent<Shooter>();
     }
     // Start is called before the first frame update
     void Start()
     {
+        popUp.SetActive(false);
+        panel = popUp.GetComponent<RectTransform>();
         isDamaged = false;
     }
 
@@ -104,5 +110,17 @@ public class Tower : MonoBehaviour
         return description;
     }
 
+    public void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            
+            popUp.SetActive(true);
+            panel.localPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+            Debug.Log(panel.localPosition.x);
+            Debug.Log(panel.localPosition.y);
+        }
+        
+    }
 }
 

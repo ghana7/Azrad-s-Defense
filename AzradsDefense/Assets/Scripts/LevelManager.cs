@@ -14,10 +14,14 @@ public class LevelManager : MonoBehaviour
     public Vector3 spawnLocation;
     public int level;
     public Button button;
+    private bool paused;
 
     private List<List<int>> waves;
 
     private int wavesSpawned;
+
+    // This is temporary until Nick makes speed-up images for the buttons
+    private Text buttonText;
 
     private void Awake()
     {
@@ -29,6 +33,9 @@ public class LevelManager : MonoBehaviour
         wavesSpawned = 0;
         waves = new List<List<int>>();
         HardcodeWave();
+
+        // temp
+        buttonText = button.GetComponentInChildren<Text>();
     }
 
     // Update is called once per frame
@@ -37,6 +44,16 @@ public class LevelManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M))
         {
+            if (paused)
+            {
+                SetSpeed(1);
+                paused = false;
+            }
+            else
+            {
+                SetSpeed(0);
+                paused = true;
+            }
             SceneManager.LoadScene("menu");
         }
 
@@ -94,7 +111,31 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void setSpeed(float speed) {
+    public void IncreaseSpeed()
+    {
+        float speed = Time.timeScale;
+        speed += 1.0f;
+        if(speed > 3.0f)
+        {
+            Time.timeScale = 1.0f;
+            // Will set it to a picture eventually
+            buttonText.text = ">";
+        }
+        else if(speed == 3.0f)
+        {
+            Time.timeScale = speed;
+            // Will set it to a picture eventually
+            buttonText.text = ">>>";
+        }
+        else
+        {
+            Time.timeScale = speed;
+            // Will set it to a picture eventually
+            buttonText.text = ">>";
+        }
+    }
+
+    public void SetSpeed(float speed) {
         Time.timeScale = speed;
     }
 }
