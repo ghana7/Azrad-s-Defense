@@ -59,6 +59,9 @@ public class Tower : MonoBehaviour
 
     Tower placedTowerClass;
     private Shooter shooter;
+    private Camera cam;
+    private GameObject popUpUI;
+    private RectTransform imagePopUp;
 
     private void Awake()
     {
@@ -69,8 +72,10 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        popUp.SetActive(false);
-        panel = popUp.GetComponent<RectTransform>();
+        cam = Camera.main;
+        popUpUI = GameObject.Find("PopUpUI");
+        imagePopUp = popUpUI.GetComponent<RectTransform>();
+        popUpUI.SetActive(false);
         isDamaged = false;
     }
 
@@ -181,13 +186,14 @@ public class Tower : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            
-            popUp.SetActive(true);
-            panel.localPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-            Debug.Log(panel.localPosition.x);
-            Debug.Log(panel.localPosition.y);
+            popUpUI.SetActive(true);
+            Vector2 screenPos = cam.WorldToScreenPoint(this.transform.position);
+            imagePopUp.anchoredPosition = new Vector2(screenPos.x, screenPos.y);
+            imagePopUp.transform.position = new Vector2(screenPos.x, screenPos.y);
+            popUpUI.transform.position = new Vector2(screenPos.x, screenPos.y);
+            Debug.Log(imagePopUp.anchoredPosition.x);
+            Debug.Log(imagePopUp.anchoredPosition.y);
         }
-        
     }
 }
 
