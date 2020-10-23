@@ -118,6 +118,7 @@ public class UIManager : MonoBehaviour
 
     public void Cancel()
     {
+        Debug.Log("Called Cancel");
         //removes tower attached to mouse
         heldTower.FullDestroy();
 

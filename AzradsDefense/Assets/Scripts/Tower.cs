@@ -86,15 +86,14 @@ public class Tower : MonoBehaviour
         {
             if (firstPointPlaced == true && secondPointPlaced == false)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)travelPoints[0]).sqrMagnitude <= 4.0f)
                 {
                     travelPoints.Add(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f));
                     secondPointPlaced = true;
                     toFirstPoint = true;
-                    LevelManager.instance.SetSpeed(1.0f);
 
                     float angle = Vector3.SignedAngle(travelPoints[1] - travelPoints[0], transform.right, new Vector3(0.0f, 0.0f, 1.0f));
-                    if(angle < 0.0f && angle >= -180.0f)
+                    if (angle < 0.0f && angle >= -180.0f)
                     {
                         angle = -angle;
                         transform.RotateAround(transform.position, new Vector3(0.0f, 0.0f, 1.0f), angle + 90);
@@ -103,6 +102,8 @@ public class Tower : MonoBehaviour
                     {
                         transform.RotateAround(transform.position, new Vector3(0.0f, 0.0f, 1.0f), 90 - angle);
                     }
+
+                    LevelManager.instance.SetSpeed(1.0f);
                 }
             }
         
@@ -187,7 +188,7 @@ public class Tower : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             popUpUI.SetActive(true);
-            Vector2 screenPos = cam.WorldToScreenPoint(this.transform.position);
+            Vector2 screenPos = cam.ScreenToWorldPoint(this.transform.position);
             imagePopUp.anchoredPosition = new Vector2(screenPos.x, screenPos.y);
             imagePopUp.transform.position = new Vector2(screenPos.x, screenPos.y);
             popUpUI.transform.position = new Vector2(screenPos.x, screenPos.y);
