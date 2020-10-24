@@ -13,9 +13,9 @@ public class Shooter : MonoBehaviour
     public float range;
 
     [SerializeField]
-    private float shotsPerSecond;
-    private float secondsPerShot;
-    private float shotCooldown;
+    protected float shotsPerSecond;
+    protected float secondsPerShot;
+    protected float shotCooldown;
     public bool canShoot;
 
     private bool isEnemy;
@@ -50,7 +50,7 @@ public class Shooter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if(canShoot)
         {

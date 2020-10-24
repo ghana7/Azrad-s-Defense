@@ -60,6 +60,10 @@ public class Tower : MonoBehaviour
     Tower placedTowerClass;
     private Shooter shooter;
 
+    [SerializeField]
+    private GameObject targetPrefab;
+    private GameObject tempTarget;
+
     private void Awake()
     {
         
@@ -77,9 +81,10 @@ public class Tower : MonoBehaviour
     {
         if (isPlaced != false)
         {
-            shooter.rangeCylInstance.SetActive(true);
             if (firstPointPlaced == true && secondPointPlaced == false)
             {
+                shooter.rangeCylInstance.SetActive(true);
+                tempTarget.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f);
                 if (Input.GetMouseButtonDown(0) && ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)travelPoints[0]).sqrMagnitude <= shooter.range * 2)
                 {
                     travelPoints.Add(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f));
@@ -97,6 +102,7 @@ public class Tower : MonoBehaviour
                         transform.RotateAround(transform.position, new Vector3(0.0f, 0.0f, 1.0f), 90 - angle);
                     }
                     shooter.rangeCylInstance.SetActive(false);
+                    Destroy(tempTarget);
                     LevelManager.instance.SetSpeed(1.0f);
                 }
             }
@@ -134,6 +140,7 @@ public class Tower : MonoBehaviour
             placed.GetComponent<Tower>().firstPointPlaced = true;
             placed.GetComponent<Tower>().travelPoints.Add(position);
             placed.GetComponent<Tower>().isPlaced = true;
+            placed.GetComponent<Tower>().tempTarget = Instantiate(targetPrefab, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f), Quaternion.identity);
             LevelManager.instance.SetSpeed(0.0f);
         }
     }
