@@ -14,7 +14,8 @@ public class LevelManager : MonoBehaviour
     public Vector3 spawnLocation;
     public int level;
     public Button button;
-    private bool paused;
+    public GameObject pause;
+    //private bool paused;
 
     private List<List<int>> waves;
 
@@ -41,21 +42,25 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Escape) && !pause.activeSelf)
         {
-            if (paused)
-            {
-                SetSpeed(1);
-                paused = false;
-            }
-            else
-            {
-                SetSpeed(0);
-                paused = true;
-            }
-            SceneManager.LoadScene("menu");
+            SetSpeed(0);
+            pause.SetActive(true);
         }
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    if (paused)
+        //    {
+        //        SetSpeed(1);
+        //        paused = false;
+        //    }
+        //    else
+        //    {
+        //        SetSpeed(0);
+        //        paused = true;
+        //    }
+        //    SceneManager.LoadScene("menu");
+        //}
 
         //if the player has no health, end the game
         if (WaveManager.instance.Completed() && wavesSpawned < waves.Count)
@@ -137,5 +142,22 @@ public class LevelManager : MonoBehaviour
 
     public void SetSpeed(float speed) {
         Time.timeScale = speed;
+    }
+
+    //Pause Menu Functions
+    public void Resume()
+    {
+        pause.SetActive(false);
+        SetSpeed(1);
+    }
+
+    public void Instructions()
+    {
+        //how do instructions
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
