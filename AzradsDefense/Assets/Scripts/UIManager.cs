@@ -101,6 +101,8 @@ public class UIManager : MonoBehaviour
         //remove tower
         moneyManager.RemoveMoney(tower.GetPrice());
 
+        Cancel();
+
         //if the player can't place another one reasonably soon,
         //cancel for them
         //if(moneyManager.GetMoney() < tower.GetPrice() - 20)
@@ -116,6 +118,7 @@ public class UIManager : MonoBehaviour
 
     public void Cancel()
     {
+        Debug.Log("Called Cancel");
         //removes tower attached to mouse
         heldTower.FullDestroy();
 
@@ -123,6 +126,12 @@ public class UIManager : MonoBehaviour
         tower = null;
         holdTower = false;
         held = false;
+    }
+
+    public void Sell()
+    {
+        tower.FullDestroy();
+        moneyManager.AddMoney(tower.GetPrice());
     }
 
     public bool isSelected()
