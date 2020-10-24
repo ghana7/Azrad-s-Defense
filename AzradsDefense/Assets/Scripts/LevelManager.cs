@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     //pause menu
     public GameObject pause;
-    public GameObject instructions;
+    public GameObject controls;
 
     private List<List<int>> waves;
 
@@ -153,10 +153,10 @@ public class LevelManager : MonoBehaviour
         SetSpeed(1);
     }
 
-    public void Instructions()
+    public void Controls()
     {
         pause.SetActive(false);
-        instructions.SetActive(true);
+        controls.SetActive(true);
     }
 
     public void MainMenu()
@@ -166,7 +166,7 @@ public class LevelManager : MonoBehaviour
 
     public void Back()
     {
-        instructions.SetActive(false);
+        controls.SetActive(false);
         pause.SetActive(true);
     }
 }
