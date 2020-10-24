@@ -81,9 +81,9 @@ public class Tower : MonoBehaviour
     {
         if (isPlaced != false)
         {
-            shooter.rangeCylInstance.SetActive(true);
             if (firstPointPlaced == true && secondPointPlaced == false)
             {
+                shooter.rangeCylInstance.SetActive(true);
                 tempTarget.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f);
                 if (Input.GetMouseButtonDown(0) && ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)travelPoints[0]).sqrMagnitude <= shooter.range * 2)
                 {
