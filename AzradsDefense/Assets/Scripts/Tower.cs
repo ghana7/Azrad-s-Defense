@@ -24,6 +24,15 @@ public class Tower : MonoBehaviour
     private bool canTravel;
 
     [SerializeField]
+    private bool firstPointPlaced;
+
+    [SerializeField]
+    private bool secondPointPlaced;
+
+    [SerializeField]
+    private bool toFirstPoint;
+
+    [SerializeField]
     private List<Vector3> travelPoints;
 
     [SerializeField]
@@ -39,10 +48,20 @@ public class Tower : MonoBehaviour
     private string description;
 
     [SerializeField]
+    private float timer;
+
+    [SerializeField]
     private GameObject popUp;
     RectTransform panel;
 
+    [SerializeField]
+    bool isPlaced;
+
+    Tower placedTowerClass;
     private Shooter shooter;
+    private Camera cam;
+    private GameObject popUpUI;
+    private RectTransform imagePopUp;
 
     private void Awake()
     {
@@ -53,15 +72,62 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        popUp.SetActive(false);
-        panel = popUp.GetComponent<RectTransform>();
+        cam = Camera.main;
+        popUpUI = GameObject.Find("PopUpUI");
+        imagePopUp = popUpUI.GetComponent<RectTransform>();
+        popUpUI.SetActive(false);
         isDamaged = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPlaced != false)
+        {
+            shooter.rangeCylInstance.SetActive(true);
+            if (firstPointPlaced == true && secondPointPlaced == false)
+            {
+                if (Input.GetMouseButtonDown(0) && ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)travelPoints[0]).sqrMagnitude <= shooter.range * 2)
+                {
+                    travelPoints.Add(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f));
+                    secondPointPlaced = true;
+                    toFirstPoint = true;
+
+                    float angle = Vector3.SignedAngle(travelPoints[1] - travelPoints[0], transform.right, new Vector3(0.0f, 0.0f, 1.0f));
+                    if (angle < 0.0f && angle >= -180.0f)
+                    {
+                        angle = -angle;
+                        transform.RotateAround(transform.position, new Vector3(0.0f, 0.0f, 1.0f), angle + 90);
+                    }
+                    else if (angle <= 180.0f && angle > 0.0f)
+                    {
+                        transform.RotateAround(transform.position, new Vector3(0.0f, 0.0f, 1.0f), 90 - angle);
+                    }
+                    shooter.rangeCylInstance.SetActive(false);
+                    LevelManager.instance.SetSpeed(1.0f);
+                }
+            }
         
+            if (secondPointPlaced == true && canTravel == true)
+            {
+                if (toFirstPoint == true && timer <= 2.5f)
+                {
+                    transform.position = Vector3.Lerp(travelPoints[0], travelPoints[1], timer / 2.5f);
+                    timer += Time.deltaTime;
+                }
+                else if (toFirstPoint == false && timer <= 2.5f)
+                {
+                    transform.position = Vector3.Lerp(travelPoints[1], GetComponent<Tower>().travelPoints[0], timer / 2.5f);
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    timer = 0.0f;
+                    toFirstPoint = !toFirstPoint;
+                    transform.RotateAround(transform.position, new Vector3(0.0f, 0.0f, 1.0f), 180);
+                }
+            }
+        }
     }
 
     //places the tower onto the map
@@ -69,6 +135,14 @@ public class Tower : MonoBehaviour
     {
         GameObject placed = Instantiate(towerPrefab, position, Quaternion.identity);
         placed.GetComponent<Shooter>().canShoot = true;
+        if(placed.GetComponent<Tower>().canTravel == true)
+        {
+            placed.GetComponent<Tower>().travelPoints.Clear();
+            placed.GetComponent<Tower>().firstPointPlaced = true;
+            placed.GetComponent<Tower>().travelPoints.Add(position);
+            placed.GetComponent<Tower>().isPlaced = true;
+            LevelManager.instance.SetSpeed(0.0f);
+        }
     }
 
     //makes it so the tower is present but cant do anything with it until rebuilt
@@ -114,13 +188,14 @@ public class Tower : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            
-            popUp.SetActive(true);
-            panel.localPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-            Debug.Log(panel.localPosition.x);
-            Debug.Log(panel.localPosition.y);
+            popUpUI.SetActive(true);
+            Vector2 screenPos = cam.ScreenToWorldPoint(this.transform.position);
+            imagePopUp.anchoredPosition = new Vector2(screenPos.x, screenPos.y);
+            imagePopUp.transform.position = new Vector2(screenPos.x, screenPos.y);
+            popUpUI.transform.position = new Vector2(screenPos.x, screenPos.y);
+            Debug.Log(imagePopUp.anchoredPosition.x);
+            Debug.Log(imagePopUp.anchoredPosition.y);
         }
-        
     }
 }
 
