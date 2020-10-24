@@ -12,8 +12,6 @@ public enum TypeOfTower
 [RequireComponent(typeof(Health))]
 public class Tower : MonoBehaviour
 {
-    private Health healthClass;
-
     [SerializeField]
     private GameObject towerPrefab;
 
@@ -42,9 +40,6 @@ public class Tower : MonoBehaviour
     private int price;
 
     [SerializeField]
-    private bool isDamaged;
-
-    [SerializeField]
     private string description;
 
     [SerializeField]
@@ -64,16 +59,16 @@ public class Tower : MonoBehaviour
     private GameObject targetPrefab;
     private GameObject tempTarget;
 
+    public bool isUpgraded;
+
     private void Awake()
     {
-        
-        healthClass = gameObject.GetComponent<Health>();
         shooter = GetComponent<Shooter>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        isDamaged = false;
+        
     }
 
     // Update is called once per frame
@@ -127,6 +122,12 @@ public class Tower : MonoBehaviour
                 }
             }
         }
+
+
+        if(Input.GetKeyDown(KeyCode.U) && isUpgraded == false)
+        {
+            Upgrade();
+        }
     }
 
     //places the tower onto the map
@@ -145,25 +146,9 @@ public class Tower : MonoBehaviour
         }
     }
 
-    //makes it so the tower is present but cant do anything with it until rebuilt
-    public void DestroyTower()
-    {
-        isDamaged = true;
-        shooter.canShoot = false;
-
-    }
-
     public void SetCanAttack(bool val)
     {
         shooter.canShoot = val;
-    }
-
-    //fix a destroyed tower
-    public void Rebuild()
-    {
-        isDamaged = false;
-        shooter.canShoot = true;
-        healthClass.health = healthClass.maxHealth;
     }
 
     //completely get rid of a tower
@@ -184,12 +169,12 @@ public class Tower : MonoBehaviour
         return description;
     }
 
-    public void OnMouseOver()
+    public void Upgrade()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-
-        }
+        GameObject upgradedTower = Instantiate(gameObject);
+        upgradedTower.GetComponent<Shooter>().range *= 1.5f;
+        upgradedTower.GetComponent<Tower>().isUpgraded = true;
+        Destroy(gameObject);
     }
 }
 

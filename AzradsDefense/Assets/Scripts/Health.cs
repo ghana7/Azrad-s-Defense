@@ -26,11 +26,6 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            if(gameObject.GetComponent<Tower>() != null)
-            {
-                gameObject.GetComponent<Tower>().DestroyTower();
-            }
-
             if(gameObject.GetComponent<Enemy>() != null)
             {
                 gameObject.GetComponent<Enemy>().FullDestroy();
