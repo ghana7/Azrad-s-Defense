@@ -84,9 +84,10 @@ public class Tower : MonoBehaviour
     {
         if (isPlaced != false)
         {
+            shooter.rangeCylInstance.SetActive(true);
             if (firstPointPlaced == true && secondPointPlaced == false)
             {
-                if (Input.GetMouseButtonDown(0) && ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)travelPoints[0]).sqrMagnitude <= 4.0f)
+                if (Input.GetMouseButtonDown(0) && ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)travelPoints[0]).sqrMagnitude <= shooter.range * 2)
                 {
                     travelPoints.Add(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f));
                     secondPointPlaced = true;
@@ -102,7 +103,7 @@ public class Tower : MonoBehaviour
                     {
                         transform.RotateAround(transform.position, new Vector3(0.0f, 0.0f, 1.0f), 90 - angle);
                     }
-
+                    shooter.rangeCylInstance.SetActive(false);
                     LevelManager.instance.SetSpeed(1.0f);
                 }
             }

@@ -10,8 +10,7 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private GameObject cannonObject;
 
-    [SerializeField]
-    private float range;
+    public float range;
 
     [SerializeField]
     private float shotsPerSecond;
@@ -28,7 +27,7 @@ public class Shooter : MonoBehaviour
 
     [SerializeField]
     private GameObject rangeCylPrefab;
-    private GameObject rangeCylInstance;
+    public GameObject rangeCylInstance;
 
     private void Awake()
     {
