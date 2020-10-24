@@ -297,3 +297,5 @@ MonoBehaviour:
   timer: 0
   popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
   isPlaced: 0
+  targetPrefab: {fileID: 6745933919935512266, guid: 6dd77cfdfb3367b43a381f85d2c02cdd,
+    type: 3}

@@ -14,8 +14,10 @@ public class LevelManager : MonoBehaviour
     public Vector3 spawnLocation;
     public int level;
     public Button button;
+
+    //pause menu
     public GameObject pause;
-    //private bool paused;
+    public GameObject instructions;
 
     private List<List<int>> waves;
 
@@ -144,7 +146,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = speed;
     }
 
-    //Pause Menu Functions
+    //PAUSE MENU FUNCTIONS
     public void Resume()
     {
         pause.SetActive(false);
@@ -153,11 +155,18 @@ public class LevelManager : MonoBehaviour
 
     public void Instructions()
     {
-        //how do instructions
+        pause.SetActive(false);
+        instructions.SetActive(true);
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void Back()
+    {
+        instructions.SetActive(false);
+        pause.SetActive(true);
     }
 }
