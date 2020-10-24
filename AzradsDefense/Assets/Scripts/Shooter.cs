@@ -38,14 +38,16 @@ public class Shooter : MonoBehaviour
 
 
         isEnemy = GetComponent<Enemy>() != null;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
+
+
         rangeCollider.radius = range;
         secondsPerShot = 1 / shotsPerSecond;
         rangeCylInstance = Instantiate(rangeCylPrefab, transform);
         rangeCylInstance.transform.localScale = new Vector3(range * 2, range * 2, range * 2);
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     // Update is called once per frame
