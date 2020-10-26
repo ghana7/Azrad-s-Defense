@@ -29,6 +29,9 @@ public class Shooter : MonoBehaviour
     private GameObject rangeCylPrefab;
     public GameObject rangeCylInstance;
 
+    [SerializeField]
+    private bool upgraded;
+
     private void Awake()
     {
         rangeCollider = GetComponent<CircleCollider2D>();
@@ -83,6 +86,13 @@ public class Shooter : MonoBehaviour
                 rangeCylInstance.SetActive(false);
 
             }
+        }
+        
+        if(GetComponent<Tower>().isUpgraded == true && upgraded == false)
+        {
+            rangeCollider.radius = range;
+            rangeCylInstance.transform.localScale = new Vector3(range * 2, range * 2, range * 2);
+            upgraded = true;
         }
         
     }
