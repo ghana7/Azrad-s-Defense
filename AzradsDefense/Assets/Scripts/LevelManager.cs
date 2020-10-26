@@ -48,25 +48,11 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !pause.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && !pause.activeSelf && !controls.activeSelf)
         {
             SetSpeed(0);
             pause.SetActive(true);
         }
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //    if (paused)
-        //    {
-        //        SetSpeed(1);
-        //        paused = false;
-        //    }
-        //    else
-        //    {
-        //        SetSpeed(0);
-        //        paused = true;
-        //    }
-        //    SceneManager.LoadScene("menu");
-        //}
 
         //if the player has no health, end the game
         if (WaveManager.instance.Completed() && wavesSpawned < waves.Count)

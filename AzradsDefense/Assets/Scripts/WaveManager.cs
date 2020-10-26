@@ -16,8 +16,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> enemyType;
 
-    
-
     private float timer;
     private float secondsBetweenSpawns;
 

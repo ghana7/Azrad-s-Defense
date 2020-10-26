@@ -5,6 +5,7 @@ using UnityEngine;
 public static class GlobalVariables
 {
     private static int level;
+    private static int enemiesDestroyed;
 
     public static int Level
     {
@@ -15,6 +16,18 @@ public static class GlobalVariables
         set
         {
             level = value;
+        }
+    }
+
+    public static int EnemiesDestroyed
+    {
+        get
+        {
+            return enemiesDestroyed;
+        }
+        set
+        {
+            enemiesDestroyed = value;
         }
     }
 }
