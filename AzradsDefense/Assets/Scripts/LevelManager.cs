@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         level = GlobalVariables.Level;
+        Debug.Log(level);
 
         SetSpeed(1);
 
