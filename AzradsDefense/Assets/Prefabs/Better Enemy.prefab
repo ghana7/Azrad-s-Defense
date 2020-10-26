@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1.25
   goldDropped: 20
-  livesLost: 1
+  livesLost: 3
 --- !u!58 &-5734070884104996698
 CircleCollider2D:
   m_ObjectHideFlags: 0
