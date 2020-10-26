@@ -45,17 +45,22 @@ public class MenuManager : MonoBehaviour
         GlobalVariables.Level++;
         if (GlobalVariables.Level <= 3)
         {
-            SceneManager.LoadScene("Level0");
+            SceneManager.LoadScene("Level");
         }
         else
         {
-            //SceneManager.LoadScene("Level0");
+            SceneManager.LoadScene("Credits");
         }
+    }
+
+    public void GoToCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 
     public void RedoLevel()
     {
-        SceneManager.LoadScene("Level0");
+        SceneManager.LoadScene("Level");
     }
 
     public void GoToLevel(int levelToGoTo)
@@ -65,6 +70,6 @@ public class MenuManager : MonoBehaviour
         ////Debug.Log("Going to '" + level + "'");
         //SceneManager.LoadScene(level);
         GlobalVariables.Level = levelToGoTo;
-        SceneManager.LoadScene("Level0");
+        SceneManager.LoadScene("Level");
     }
 }
