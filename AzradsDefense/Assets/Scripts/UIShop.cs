@@ -14,15 +14,24 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private MoneyManager moneyManager;
     [SerializeField]
     private Button button;
+    [SerializeField]
+    private Sprite sprite;
+    [SerializeField]
+    private Sprite spriteBuy;
 
     private string prevText;
     private Tower tower;
+    private int cost;
+    private Text priceText;
     
 
     // Start is called before the first frame update
     void Start()
     {
         tower = prefab.GetComponent<Tower>();
+        cost = tower.GetPrice();
+        priceText = GetComponentInChildren<Text>();
+        priceText.text = cost.ToString();
     }
 
     // Update is called once per frame
@@ -30,11 +39,11 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(!(moneyManager.GetMoney() > tower.GetPrice()))
         {
-            button.GetComponent<Image>().color = Color.grey;
+            button.GetComponent<Image>().sprite = sprite;
         }
         else
         {
-            button.GetComponent<Image>().color = Color.white;
+            button.GetComponent<Image>().sprite = spriteBuy;
         }
     }
 
