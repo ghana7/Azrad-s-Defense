@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -879,7 +879,6 @@ MonoBehaviour:
   towerOnMouse: {fileID: 0}
   holdTower: 0
   selection: {fileID: 0}
-  moneyManager: {fileID: 1652634669}
   description: {fileID: 1268448041}
 --- !u!4 &417426303
 Transform:
@@ -1350,7 +1349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   uiManager: {fileID: 0}
-  moneyManager: {fileID: 0}
   button: {fileID: 0}
   sprite: {fileID: 0}
   spriteBuy: {fileID: 0}
@@ -1512,87 +1510,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579258728}
   m_CullTransparentMesh: 0
---- !u!1 &610899540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 610899542}
-  - component: {fileID: 610899541}
-  m_Layer: 0
-  m_Name: dinghyLarge1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &610899541
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610899540}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5cb3a755e6982e04eb1216edb7876999, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.38}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &610899542
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610899540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 335.635, y: 125.483696, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644714382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,7 +1563,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   uiManager: {fileID: 0}
-  moneyManager: {fileID: 0}
   button: {fileID: 0}
   sprite: {fileID: 0}
   spriteBuy: {fileID: 0}
@@ -1797,7 +1713,7 @@ Transform:
   - {fileID: 2027051094}
   - {fileID: 1288300420}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671756714
 GameObject:
@@ -1986,7 +1902,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6171872025592738720, guid: 1811b4d24a6eaad449ea1001be93f0bf, type: 3}
   uiManager: {fileID: 417426302}
-  moneyManager: {fileID: 1652634669}
   button: {fileID: 690125866}
   sprite: {fileID: 21300000, guid: cd898d2d5ba3f7c4c9d13a9bd5a63e1a, type: 3}
   spriteBuy: {fileID: 21300000, guid: d7fb333450081144fa65c8dcb8dffd33, type: 3}
@@ -2135,7 +2050,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3993935181220868113, guid: cf3794324524dce4dbd22e7b28c4ca07, type: 3}
   uiManager: {fileID: 417426302}
-  moneyManager: {fileID: 1652634669}
   button: {fileID: 912503526}
   sprite: {fileID: 21300000, guid: ac9124d9394896c4f9b9ed1f46c7a935, type: 3}
   spriteBuy: {fileID: 21300000, guid: 02ad925abdb4df747a179440d00353f5, type: 3}
@@ -2299,7 +2213,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Upgrade
 --- !u!222 &948116552
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2711,7 +2625,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3993935181220868113, guid: d37be40f27f002845afc7e8b2ea651e0, type: 3}
   uiManager: {fileID: 417426302}
-  moneyManager: {fileID: 1652634669}
   button: {fileID: 1160560883}
   sprite: {fileID: 21300000, guid: 16210ae62b6e2024394357771a7d3bd9, type: 3}
   spriteBuy: {fileID: 21300000, guid: f5bc85212caa4794db511fce92aba5ba, type: 3}
@@ -3727,7 +3640,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3993935181220868113, guid: bd8add7f23faabd42865379e297416e7, type: 3}
   uiManager: {fileID: 417426302}
-  moneyManager: {fileID: 1652634669}
   button: {fileID: 1661147077}
   sprite: {fileID: 21300000, guid: b121052e1be31fb449333daaffdf8ada, type: 3}
   spriteBuy: {fileID: 21300000, guid: d28394bfb92cd0248a7bdde3853308a7, type: 3}
