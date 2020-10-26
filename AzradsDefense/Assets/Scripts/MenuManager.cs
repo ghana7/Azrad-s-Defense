@@ -9,7 +9,6 @@ public class MenuManager : MonoBehaviour
 
     public GameObject menu;
     public GameObject levelSelector;
-    public int levelToGoTo;
 
     // Start is called before the first frame update
     void Start()
@@ -36,15 +35,28 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    //public void GoToLevel()
-    //{
-    //    //string level = levelToGoTo.ToString();
-    //    //level = string.Concat("Level", level);
-    //    ////Debug.Log("Going to '" + level + "'");
-    //    //SceneManager.LoadScene(level);
-    //    //GlobalVariables.Level = levelToGoTo;
-    //    SceneManager.LoadScene("Level0");
-    //}
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void NextLevel()
+    {
+        GlobalVariables.Level++;
+        if (GlobalVariables.Level <= 3)
+        {
+            SceneManager.LoadScene("Level0");
+        }
+        else
+        {
+            //SceneManager.LoadScene("Level0");
+        }
+    }
+
+    public void RedoLevel()
+    {
+        SceneManager.LoadScene("Level0");
+    }
 
     public void GoToLevel(int levelToGoTo)
     {
