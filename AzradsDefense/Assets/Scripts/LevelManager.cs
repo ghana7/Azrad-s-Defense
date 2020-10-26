@@ -14,8 +14,10 @@ public class LevelManager : MonoBehaviour
     public Vector3 spawnLocation;
     public int level;
     public Button button;
+
+    //pause menu
     public GameObject pause;
-    //private bool paused;
+    public GameObject controls;
 
     private List<List<int>> waves;
 
@@ -31,6 +33,10 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = GlobalVariables.Level;
+
+        Debug.Log(level);
+
         wavesSpawned = 0;
         waves = new List<List<int>>();
         HardcodeWave();
@@ -144,20 +150,27 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = speed;
     }
 
-    //Pause Menu Functions
+    //PAUSE MENU FUNCTIONS
     public void Resume()
     {
         pause.SetActive(false);
         SetSpeed(1);
     }
 
-    public void Instructions()
+    public void Controls()
     {
-        //how do instructions
+        pause.SetActive(false);
+        controls.SetActive(true);
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void Back()
+    {
+        controls.SetActive(false);
+        pause.SetActive(true);
     }
 }

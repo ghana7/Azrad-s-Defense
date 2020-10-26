@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager instance;
+
     public GameObject menu;
     public GameObject levelSelector;
     public int levelToGoTo;
@@ -36,9 +38,11 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLevel()
     {
-        string level = levelToGoTo.ToString();
-        level = string.Concat("Level", level);
-        //Debug.Log("Going to '" + level + "'");
-        SceneManager.LoadScene(level);
+        //string level = levelToGoTo.ToString();
+        //level = string.Concat("Level", level);
+        ////Debug.Log("Going to '" + level + "'");
+        //SceneManager.LoadScene(level);
+        GlobalVariables.Level = levelToGoTo;
+        SceneManager.LoadScene("Level");
     }
 }
