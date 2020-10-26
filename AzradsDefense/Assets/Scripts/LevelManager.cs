@@ -33,6 +33,10 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = GlobalVariables.Level;
+
+        Debug.Log(level);
+
         wavesSpawned = 0;
         waves = new List<List<int>>();
         HardcodeWave();
