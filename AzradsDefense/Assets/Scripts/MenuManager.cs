@@ -43,6 +43,6 @@ public class MenuManager : MonoBehaviour
         ////Debug.Log("Going to '" + level + "'");
         //SceneManager.LoadScene(level);
         GlobalVariables.Level = levelToGoTo;
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("Level0");
     }
 }

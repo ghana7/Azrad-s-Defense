@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
     {
         level = GlobalVariables.Level;
 
-        Debug.Log(level);
+        SetSpeed(1);
 
         wavesSpawned = 0;
         waves = new List<List<int>>();
