@@ -36,7 +36,17 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void GoToLevel()
+    //public void GoToLevel()
+    //{
+    //    //string level = levelToGoTo.ToString();
+    //    //level = string.Concat("Level", level);
+    //    ////Debug.Log("Going to '" + level + "'");
+    //    //SceneManager.LoadScene(level);
+    //    //GlobalVariables.Level = levelToGoTo;
+    //    SceneManager.LoadScene("Level0");
+    //}
+
+    public void GoToLevel(int levelToGoTo)
     {
         //string level = levelToGoTo.ToString();
         //level = string.Concat("Level", level);
