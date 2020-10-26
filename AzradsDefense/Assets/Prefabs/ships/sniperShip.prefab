@@ -265,12 +265,18 @@ MonoBehaviour:
   towerPrefab: {fileID: 6171872025592738720}
   towerType: 1
   canTravel: 0
+  firstPointPlaced: 0
+  secondPointPlaced: 0
+  toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 250
-  isDamaged: 0
-  canAttack: 1
+  price: 200
   description: Long range detection.
+  timer: 0
+  popUp: {fileID: 0}
+  isPlaced: 0
+  targetPrefab: {fileID: 0}
+  isUpgraded: 0
 --- !u!114 &6171872025592738723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,5 +295,8 @@ MonoBehaviour:
   cannonObject: {fileID: 6171872025070393991}
   range: 4
   shotsPerSecond: 0.5
+  canShoot: 0
   rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
     type: 3}
+  rangeCylInstance: {fileID: 0}
+  upgraded: 0
