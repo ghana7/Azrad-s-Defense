@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
     // Full destroy method to reward gold to the player, remove the enemy from the list of enemies, and destroy the gameobject
     public void FullDestroy()
     {
+        GlobalVariables.EnemiesDestroyed++;
         MoneyManager.instance.AddMoney(goldDropped);
         WaveManager.instance.RemoveEnemy();
         Destroy(gameObject);

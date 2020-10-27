@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
@@ -10,10 +11,18 @@ public class MenuManager : MonoBehaviour
     public GameObject menu;
     public GameObject levelSelector;
 
+    [SerializeField]
+    private bool displayEnemyDeaths;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (displayEnemyDeaths)
+        {
+            //Debug.Log(GlobalVariables.EnemiesDestroyed);
 
+            GetComponentInChildren<Text>().text = "You destroyed " + GlobalVariables.EnemiesDestroyed.ToString() + " enemies!";
+        }
     }
 
     // Update is called once per frame
