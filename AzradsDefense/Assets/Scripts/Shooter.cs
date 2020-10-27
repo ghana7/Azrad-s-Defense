@@ -32,7 +32,7 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private bool upgraded;
 
-    private void Awake()
+    protected void Awake()
     {
         rangeCollider = GetComponent<CircleCollider2D>();
 

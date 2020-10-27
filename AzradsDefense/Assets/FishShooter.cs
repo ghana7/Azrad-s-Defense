@@ -6,11 +6,6 @@ public class FishShooter : Shooter
 {
     [SerializeField]
     private int amountOfMoney;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     protected override void Update()
@@ -26,6 +21,21 @@ public class FishShooter : Shooter
             {
                 Shoot(0);
                 shotCooldown -= secondsPerShot;
+            }
+        }
+
+        if (rangeCylInstance != null)
+        {
+            float sqrDist = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).sqrMagnitude;
+            if (sqrDist <= 0.25f)
+            {
+                rangeCylInstance.SetActive(true);
+
+            }
+            else
+            {
+                rangeCylInstance.SetActive(false);
+
             }
         }
     }

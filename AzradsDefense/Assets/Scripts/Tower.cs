@@ -181,6 +181,7 @@ public class Tower : MonoBehaviour
             newTower.isPlaced = isPlaced;
             newTower.canTravel = canTravel;
             newTower.transform.rotation = transform.rotation;
+            newTower.transform.position = transform.position;
 
             Shooter newShooter = upgradedTower.GetComponent<Shooter>();
             newShooter.CloneData(GetComponent<Shooter>());

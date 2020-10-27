@@ -8,12 +8,13 @@ public class CoinProjectile : Projectile
     private float lifetime;
 
     private float currentLifetime;
-    private SpriteRenderer sr;
+    private SpriteRenderer[] sr;
     // Start is called before the first frame update
     void Awake()
     {
         currentLifetime = 0;
-        sr = GetComponent<SpriteRenderer>();
+        sr = GetComponentsInChildren<SpriteRenderer>();
+        
 
         //set the target to something so it doesn't delete itself
         target = gameObject;
@@ -25,7 +26,11 @@ public class CoinProjectile : Projectile
 
         currentLifetime += Time.deltaTime;
 
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, Mathf.Lerp(1.0f, 0.0f, currentLifetime / lifetime));
+        foreach(SpriteRenderer s in sr)
+        {
+            s.color = new Color(s.color.r, s.color.g, s.color.b, Mathf.Lerp(1.0f, 0.0f, currentLifetime / lifetime));
+        }
+        
         if(currentLifetime > lifetime)
         {
             Destroy(gameObject);
