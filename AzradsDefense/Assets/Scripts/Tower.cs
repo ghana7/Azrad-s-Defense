@@ -77,7 +77,7 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlaced != false)
+        if (isPlaced != false && canTravel == true)
         {
             if (firstPointPlaced == true && secondPointPlaced == false)
             {

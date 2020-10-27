@@ -11,8 +11,6 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField]
     private UIManager uiManager;
     [SerializeField]
-    private MoneyManager moneyManager;
-    [SerializeField]
     private Button button;
     [SerializeField]
     private Sprite sprite;
@@ -37,7 +35,7 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
-        if(!(moneyManager.GetMoney() > tower.GetPrice()))
+        if(!(MoneyManager.instance.GetMoney() > tower.GetPrice()))
         {
             button.GetComponent<Image>().sprite = sprite;
         }
@@ -49,7 +47,7 @@ public class UIShop : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnClick()
     {
-        if (moneyManager.GetMoney() >= tower.GetPrice())
+        if (MoneyManager.instance.GetMoney() >= tower.GetPrice())
         {
             uiManager.SetSelectedTower(this);
         }    

@@ -17,8 +17,6 @@ public class UIManager : MonoBehaviour
     private bool holdTower;
     [SerializeField]
     private UIShop selection;
-    [SerializeField]
-    private MoneyManager moneyManager;
 
     // Set before launch
     [SerializeField]
@@ -60,7 +58,7 @@ public class UIManager : MonoBehaviour
             }
             
             //if left mouse button clicked, buy the tower as long as you have enough money
-            if(Input.GetMouseButtonDown(0) && moneyManager.GetMoney() >= tower.GetPrice())
+            if(Input.GetMouseButtonDown(0) && MoneyManager.instance.GetMoney() >= tower.GetPrice())
             {
                 Buy();
             }
@@ -99,7 +97,7 @@ public class UIManager : MonoBehaviour
         //place tower
         tower.Place(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f));
         //remove tower
-        moneyManager.RemoveMoney(tower.GetPrice());
+        MoneyManager.instance.RemoveMoney(tower.GetPrice());
 
         Cancel();
     }
@@ -118,7 +116,7 @@ public class UIManager : MonoBehaviour
     public void Sell()
     {
         tower.FullDestroy();
-        moneyManager.AddMoney(tower.GetPrice());
+        MoneyManager.instance.AddMoney(tower.GetPrice());
     }
 
     public bool isSelected()

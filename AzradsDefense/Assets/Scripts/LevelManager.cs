@@ -34,8 +34,9 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         level = GlobalVariables.Level;
+        //Debug.Log(level);
 
-        Debug.Log(level);
+        SetSpeed(1);
 
         wavesSpawned = 0;
         waves = new List<List<int>>();
@@ -48,25 +49,11 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !pause.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && !pause.activeSelf && !controls.activeSelf)
         {
             SetSpeed(0);
             pause.SetActive(true);
         }
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //    if (paused)
-        //    {
-        //        SetSpeed(1);
-        //        paused = false;
-        //    }
-        //    else
-        //    {
-        //        SetSpeed(0);
-        //        paused = true;
-        //    }
-        //    SceneManager.LoadScene("menu");
-        //}
 
         //if the player has no health, end the game
         if (WaveManager.instance.Completed() && wavesSpawned < waves.Count)
@@ -77,10 +64,12 @@ public class LevelManager : MonoBehaviour
         {
             //END THE LEVEL
             //Debug.Log("Level Ended");
-            level++;
-            wavesSpawned = 0;
-            HardcodeWave();
-            SendWave();
+
+            SceneManager.LoadScene("Level Complete");
+            //level++;
+            //wavesSpawned = 0;
+            //HardcodeWave();
+            //SendWave();
         }
     }
 

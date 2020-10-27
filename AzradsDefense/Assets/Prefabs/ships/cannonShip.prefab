@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 3993935181220868113}
   towerType: 1
-  canTravel: 1
+  canTravel: 0
   firstPointPlaced: 0
   secondPointPlaced: 0
   toFirstPoint: 0
