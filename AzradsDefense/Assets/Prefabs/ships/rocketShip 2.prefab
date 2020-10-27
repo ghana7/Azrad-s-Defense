@@ -221,6 +221,7 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds: []
 --- !u!58 &3993935181220868109
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -292,12 +293,12 @@ MonoBehaviour:
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 100
+  price: 500
   description: Shoots rockets that track enemies. Slow fire rate.
   timer: 0
   popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
   isPlaced: 0
   targetPrefab: {fileID: 6745933919935512266, guid: 6dd77cfdfb3367b43a381f85d2c02cdd,
     type: 3}
-  isUpgraded: 0
   upgradePrefab: {fileID: 0}
+  upgradeCost: 0

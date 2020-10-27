@@ -270,7 +270,7 @@ MonoBehaviour:
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 250
+  price: 150
   description: Long range detection.
   timer: 0
   popUp: {fileID: 0}

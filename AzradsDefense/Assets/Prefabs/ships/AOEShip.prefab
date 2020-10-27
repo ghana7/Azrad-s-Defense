@@ -4970,7 +4970,7 @@ MonoBehaviour:
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 500
+  price: 250
   description: Hits all enemies in an area around it.
   timer: 0
   popUp: {fileID: 0}
@@ -5001,4 +5001,5 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds: []
   particleWrapper: {fileID: 639998949649687440}

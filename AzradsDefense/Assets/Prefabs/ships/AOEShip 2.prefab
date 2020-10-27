@@ -4970,14 +4970,14 @@ MonoBehaviour:
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 500
+  price: 250
   description: Hits all enemies in an area around it.
   timer: 0
   popUp: {fileID: 0}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  isUpgraded: 0
   upgradePrefab: {fileID: 0}
+  upgradeCost: 0
 --- !u!114 &4975015568938946642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5000,4 +5000,5 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds: []
   particleWrapper: {fileID: 639998949649687440}
