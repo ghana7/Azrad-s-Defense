@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3993935181220868106}
   - component: {fileID: 3993935181220868107}
   m_Layer: 0
-  m_Name: cannonShip
+  m_Name: cannonShip 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefabs:
-  - {fileID: 1379301172046988977, guid: bb94d1148fa6d234b91c074fe219ee95, type: 3}
+  - {fileID: 1379301172046988977, guid: 350b2ba3c45bfaa4e8e81bbed00f2ba8, type: 3}
   cannonObject: {fileID: 3993935179621538102}
   range: 1.5
   shotsPerSecond: 0.75
@@ -298,6 +298,5 @@ MonoBehaviour:
   popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  upgradePrefab: {fileID: 3993935181220868113, guid: 530e6372060458a4d9c0059a82d2576d,
-    type: 3}
-  upgradeCost: 50
+  isUpgraded: 0
+  upgradePrefab: {fileID: 0}

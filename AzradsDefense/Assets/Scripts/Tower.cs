@@ -59,7 +59,10 @@ public class Tower : MonoBehaviour
     private GameObject targetPrefab;
     private GameObject tempTarget;
 
-    public bool isUpgraded;
+    [SerializeField]
+    private GameObject upgradePrefab;
+    public int upgradeCost;
+
 
     private void Awake()
     {
@@ -122,12 +125,6 @@ public class Tower : MonoBehaviour
                 }
             }
         }
-
-
-        if(Input.GetKeyDown(KeyCode.U) && isUpgraded == false)
-        {
-            Upgrade();
-        }
     }
 
     //places the tower onto the map
@@ -169,12 +166,38 @@ public class Tower : MonoBehaviour
         return description;
     }
 
-    public void Upgrade()
+    public Tower Upgrade()
     {
-        GameObject upgradedTower = Instantiate(gameObject);
-        upgradedTower.GetComponent<Shooter>().range *= 1.5f;
-        upgradedTower.GetComponent<Tower>().isUpgraded = true;
-        Destroy(gameObject);
+        if(upgradePrefab != null)
+        {
+            GameObject upgradedTower = Instantiate(upgradePrefab);
+            Tower newTower = upgradedTower.GetComponent<Tower>();
+
+            newTower.firstPointPlaced = firstPointPlaced;
+            newTower.secondPointPlaced = secondPointPlaced;
+            newTower.toFirstPoint = toFirstPoint;
+            newTower.travelPoints = travelPoints;
+            newTower.timer = timer;
+            newTower.isPlaced = isPlaced;
+            newTower.canTravel = canTravel;
+            newTower.transform.rotation = transform.rotation;
+
+            Shooter newShooter = upgradedTower.GetComponent<Shooter>();
+            newShooter.CloneData(GetComponent<Shooter>());
+            Destroy(gameObject);
+            return newTower;
+        }
+        return null;
+    }
+
+    public void OnMouseDown()
+    {
+        float sqrDist = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).sqrMagnitude;
+        if(sqrDist <= 0.25f)
+        {
+            Debug.Log("selected");
+            UpgradeManager.instance.SetShipToUpgrade(this);
+        }
     }
 }
 

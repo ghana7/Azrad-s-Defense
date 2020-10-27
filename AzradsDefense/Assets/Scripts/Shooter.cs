@@ -87,14 +87,6 @@ public class Shooter : MonoBehaviour
 
             }
         }
-        
-        if(GetComponent<Tower>().isUpgraded == true && upgraded == false)
-        {
-            rangeCollider.radius = range;
-            rangeCylInstance.transform.localScale = new Vector3(range * 2, range * 2, range * 2);
-            upgraded = true;
-        }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -179,4 +171,11 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    public void CloneData(Shooter other)
+    {
+        shotCooldown = other.shotCooldown;
+        currentTarget = other.currentTarget;
+        targetsInRange = other.targetsInRange;
+        canShoot = other.canShoot;
+    }
 }

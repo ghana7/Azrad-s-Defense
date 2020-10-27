@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3993935181220868106}
   - component: {fileID: 3993935181220868107}
   m_Layer: 0
-  m_Name: cannonShip
+  m_Name: flamethrowerShip 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 347aa262ab37f3f44909a577645b4bef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ccf3c7fe68327d4aae9bb3f50009238, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -212,10 +212,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefabs:
-  - {fileID: 1379301172046988977, guid: bb94d1148fa6d234b91c074fe219ee95, type: 3}
+  - {fileID: 1379301172046988977, guid: 1e49bd6823264e045b78a4320fc074e6, type: 3}
   cannonObject: {fileID: 3993935179621538102}
-  range: 1.5
-  shotsPerSecond: 0.75
+  range: 3
+  shotsPerSecond: 10
   canShoot: 0
   rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
     type: 3}
@@ -286,18 +286,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 3993935181220868113}
   towerType: 1
-  canTravel: 1
+  canTravel: 0
   firstPointPlaced: 0
   secondPointPlaced: 0
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 50
-  description: Shoots cannonballs at enemies. Slow fire rate.
+  price: 1000
+  description: Fire!
   timer: 0
-  popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
+  popUp: {fileID: 0}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  upgradePrefab: {fileID: 3993935181220868113, guid: 530e6372060458a4d9c0059a82d2576d,
+  upgradePrefab: {fileID: 3993935181220868113, guid: bd73dbd8f1d5a7c408f25ef873daa9af,
     type: 3}
-  upgradeCost: 50
+  upgradeCost: 500

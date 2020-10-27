@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3993935179621538102
+--- !u!1 &6171872024559563715
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3993935179621538101}
-  m_Layer: 0
-  m_Name: cannonWrapper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3993935179621538101
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935179621538102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3993935180190576753}
-  m_Father: {fileID: 3993935181220868110}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3993935180190576754
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3993935180190576753}
-  - component: {fileID: 3993935180190576752}
+  - component: {fileID: 6171872024559563712}
+  - component: {fileID: 6171872024559563713}
   m_Layer: 0
   m_Name: cannonLoose
   m_TagString: Untagged
@@ -48,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3993935180190576753
+--- !u!4 &6171872024559563712
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935180190576754}
+  m_GameObject: {fileID: 6171872024559563715}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -0.1, y: 0, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 3993935179621538101}
+  m_Father: {fileID: 6171872025070393988}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!212 &3993935180190576752
+--- !u!212 &6171872024559563713
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935180190576754}
+  m_GameObject: {fileID: 6171872024559563715}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -112,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &3993935181220868113
+--- !u!1 &6171872025070393991
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,42 +89,73 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3993935181220868110}
-  - component: {fileID: 3993935181220868111}
-  - component: {fileID: 3993935181220868112}
-  - component: {fileID: 3993935181220868109}
-  - component: {fileID: 3993935181220868108}
-  - component: {fileID: 3993935181220868106}
-  - component: {fileID: 3993935181220868107}
+  - component: {fileID: 6171872025070393988}
   m_Layer: 0
-  m_Name: cannonShip
+  m_Name: cannonWrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3993935181220868110
+--- !u!4 &6171872025070393988
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935181220868113}
+  m_GameObject: {fileID: 6171872025070393991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.22, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3993935179621538101}
+  - {fileID: 6171872024559563712}
+  m_Father: {fileID: 6171872025592738751}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6171872025592738720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6171872025592738751}
+  - component: {fileID: 6171872025592738750}
+  - component: {fileID: 6171872025592738748}
+  - component: {fileID: 6171872025592738749}
+  - component: {fileID: 6171872025592738747}
+  - component: {fileID: 6171872025592738746}
+  - component: {fileID: 6171872025592738723}
+  m_Layer: 0
+  m_Name: sniperShip 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6171872025592738751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6171872025592738720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.89, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6171872025070393988}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3993935181220868111
+--- !u!212 &6171872025592738750
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935181220868113}
+  m_GameObject: {fileID: 6171872025592738720}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 347aa262ab37f3f44909a577645b4bef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfe4db6eaca7ce84db5ad5d7b5beca3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,35 +199,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3993935181220868112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935181220868113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c3c612a2eca2b4686638d243dcb5c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefabs:
-  - {fileID: 1379301172046988977, guid: bb94d1148fa6d234b91c074fe219ee95, type: 3}
-  cannonObject: {fileID: 3993935179621538102}
-  range: 1.5
-  shotsPerSecond: 0.75
-  canShoot: 0
-  rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
-    type: 3}
-  rangeCylInstance: {fileID: 0}
-  upgraded: 0
---- !u!58 &3993935181220868109
+--- !u!58 &6171872025592738748
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935181220868113}
+  m_GameObject: {fileID: 6171872025592738720}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -236,15 +214,15 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.565
---- !u!50 &3993935181220868108
+  m_Radius: 4
+--- !u!50 &6171872025592738749
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935181220868113}
+  m_GameObject: {fileID: 6171872025592738720}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -258,13 +236,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3993935181220868106
+--- !u!114 &6171872025592738747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935181220868113}
+  m_GameObject: {fileID: 6171872025592738720}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b708e20a02528e4288e21cf293764e0, type: 3}
@@ -272,32 +250,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
---- !u!114 &3993935181220868107
+--- !u!114 &6171872025592738746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993935181220868113}
+  m_GameObject: {fileID: 6171872025592738720}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87076564ba21f5f4d9b9d2ca4340ecf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 3993935181220868113}
+  towerPrefab: {fileID: 6171872025592738720}
   towerType: 1
-  canTravel: 1
+  canTravel: 0
   firstPointPlaced: 0
   secondPointPlaced: 0
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 50
-  description: Shoots cannonballs at enemies. Slow fire rate.
+  price: 250
+  description: Long range detection.
   timer: 0
-  popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
+  popUp: {fileID: 0}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  upgradePrefab: {fileID: 3993935181220868113, guid: 530e6372060458a4d9c0059a82d2576d,
+  upgradePrefab: {fileID: 6171872025592738720, guid: 0f113c520e107b842ba201d8aa4e015e,
     type: 3}
-  upgradeCost: 50
+  upgradeCost: 125
+--- !u!114 &6171872025592738723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6171872025592738720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f35dd54badfef428bd92bed81153cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefabs:
+  - {fileID: 8639031841821417311, guid: 0c3d43cca2580494397dece6973b68c5, type: 3}
+  - {fileID: 1379301172046988977, guid: aa7ab6fdc7c175d4f9bfa122fd614cf6, type: 3}
+  cannonObject: {fileID: 6171872025070393991}
+  range: 4
+  shotsPerSecond: 0.5
+  canShoot: 0
+  rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
+    type: 3}
+  rangeCylInstance: {fileID: 0}
+  upgraded: 0

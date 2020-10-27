@@ -4828,7 +4828,7 @@ GameObject:
   - component: {fileID: 3993935181220868107}
   - component: {fileID: 4975015568938946642}
   m_Layer: 0
-  m_Name: AOEShip
+  m_Name: AOEShip 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4976,9 +4976,8 @@ MonoBehaviour:
   popUp: {fileID: 0}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  upgradePrefab: {fileID: 3993935181220868113, guid: 67b963e536fa4aa48a175f1a39155878,
-    type: 3}
-  upgradeCost: 200
+  isUpgraded: 0
+  upgradePrefab: {fileID: 0}
 --- !u!114 &4975015568938946642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4992,7 +4991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefabs:
-  - {fileID: 1379301172046988977, guid: 920145b0d134a9345bca67fc3c34f382, type: 3}
+  - {fileID: 1379301172046988977, guid: 20c4e109451fc3f479958eff1ea08e60, type: 3}
   cannonObject: {fileID: 0}
   range: 1
   shotsPerSecond: 1
