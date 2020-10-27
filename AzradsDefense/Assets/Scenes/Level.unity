@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 0
   startingLives: 10
-  livesText: {fileID: 0}
+  livesText: {fileID: 2022770020}
 --- !u!114 &648518024
 MonoBehaviour:
   m_ObjectHideFlags: 0

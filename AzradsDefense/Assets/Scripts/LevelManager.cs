@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         level = GlobalVariables.Level;
-        Debug.Log(level);
+        //Debug.Log(level);
 
         SetSpeed(1);
 
@@ -64,10 +64,12 @@ public class LevelManager : MonoBehaviour
         {
             //END THE LEVEL
             //Debug.Log("Level Ended");
-            level++;
-            wavesSpawned = 0;
-            HardcodeWave();
-            SendWave();
+
+            SceneManager.LoadScene("Level Complete");
+            //level++;
+            //wavesSpawned = 0;
+            //HardcodeWave();
+            //SendWave();
         }
     }
 
