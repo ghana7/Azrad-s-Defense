@@ -158,11 +158,14 @@ MonoBehaviour:
   travelPoints: []
   movementSpeed: 0
   price: 50
-  isDamaged: 0
-  description: Shoots cannonballs that track enemies. Slow fire rate.
+  description: Catches fish and magically transmutes them into more gold.
   timer: 0
   popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
   isPlaced: 0
+  targetPrefab: {fileID: 0}
+  upgradePrefab: {fileID: 3993935181220868113, guid: a2a610ddb4b0f3d42a7b78b9f9449d16,
+    type: 3}
+  upgradeCost: 50
 --- !u!114 &5486186754430954027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,10 +182,14 @@ MonoBehaviour:
   - {fileID: 1379301172046988977, guid: a3ae7a7046d521348a96363330257923, type: 3}
   - {fileID: 1379301172046988977, guid: 98ad7b166030f684a895036099a7e2fe, type: 3}
   cannonObject: {fileID: 0}
-  range: 0
+  range: 1
   shotsPerSecond: 0.25
   canShoot: 0
   rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
     type: 3}
   rangeCylInstance: {fileID: 0}
+  upgraded: 0
+  shotSounds:
+  - 
+  - money
   amountOfMoney: 5

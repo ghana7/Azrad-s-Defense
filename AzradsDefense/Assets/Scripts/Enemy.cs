@@ -16,11 +16,11 @@ public class Enemy : MonoBehaviour
     private int livesLost;
 
     private int currentNode;
-
+    private float subProgress;
     void Awake()
     {
         currentNode = 1;
-
+        subProgress = 0;
         transform.position = Map.instance.activePath[0];  
     }
 
@@ -35,9 +35,12 @@ public class Enemy : MonoBehaviour
     public void Move()
     {
         Vector3 displacement = Map.instance.activePath[currentNode] - transform.position;
+        Vector3 fullDist = Map.instance.activePath[currentNode] - Map.instance.activePath[currentNode - 1];
+        subProgress = 1.0f - displacement.magnitude / fullDist.magnitude;
         if (displacement.sqrMagnitude <= movementSpeed * movementSpeed * Time.deltaTime * Time.deltaTime)
         {
             currentNode++;
+            
             if (currentNode >= Map.instance.activePath.Length)
             {
                 WaveManager.instance.RemoveEnemy();
@@ -61,5 +64,13 @@ public class Enemy : MonoBehaviour
         MoneyManager.instance.AddMoney(goldDropped);
         WaveManager.instance.RemoveEnemy();
         Destroy(gameObject);
+    }
+    public float Progress()
+    {
+        return currentNode + subProgress;
+    }
+    public float Strength()
+    {
+        return livesLost;
     }
 }

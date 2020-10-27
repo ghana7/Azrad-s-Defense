@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    public enum TargetMode { First, Biggest, Fastest}
     [SerializeField]
     protected GameObject[] projectilePrefabs;
 
@@ -32,7 +33,9 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private bool upgraded;
 
-    private void Awake()
+    [SerializeField]
+    protected string[] shotSounds;
+    protected void Awake()
     {
         rangeCollider = GetComponent<CircleCollider2D>();
 
@@ -87,14 +90,6 @@ public class Shooter : MonoBehaviour
 
             }
         }
-        
-        if(GetComponent<Tower>().isUpgraded == true && upgraded == false)
-        {
-            rangeCollider.radius = range;
-            rangeCylInstance.transform.localScale = new Vector3(range * 2, range * 2, range * 2);
-            upgraded = true;
-        }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -109,7 +104,7 @@ public class Shooter : MonoBehaviour
                 targetsInRange.Add(other.gameObject);
                 if (currentTarget == null)
                 {
-                    UpdateTarget();
+                    UpdateTarget(TargetMode.Biggest);
                 }
             }
         }
@@ -126,7 +121,7 @@ public class Shooter : MonoBehaviour
                 targetsInRange.Remove(other.gameObject);
                 if (other.gameObject == currentTarget)
                 {
-                    UpdateTarget();
+                    UpdateTarget(TargetMode.Biggest);
                 }
             }
         }
@@ -137,11 +132,45 @@ public class Shooter : MonoBehaviour
     /// 
     /// Probably should be the furthest forward enemy
     /// </summary>
-    private void UpdateTarget()
+    private void UpdateTarget(TargetMode targetMode)
     {
+        
         if(targetsInRange.Count > 0)
         {
-            currentTarget = targetsInRange[0];
+            GameObject target = null;
+            switch (targetMode)
+            {
+                case TargetMode.First:
+                    float furthestDist = 0;
+                    for(int i = 0; i < targetsInRange.Count; i++)
+                    {
+                        Enemy e = targetsInRange[i].GetComponent<Enemy>();
+                        if (e.Progress() > furthestDist)
+                        {
+                            furthestDist = e.Progress();
+                            target = targetsInRange[i];
+                        }
+                    }
+                    break;
+                case TargetMode.Biggest:
+                    float biggestDanger = 0;
+                    for (int i = 0; i < targetsInRange.Count; i++)
+                    {
+                        Enemy e = targetsInRange[i].GetComponent<Enemy>();
+                        if (e.Strength() > biggestDanger)
+                        {
+                            biggestDanger = e.Strength();
+                            target = targetsInRange[i];
+                        }
+                    }
+                    break;
+                case TargetMode.Fastest:
+                    break;
+                default:
+                    currentTarget = targetsInRange[0];
+                    break;
+            }
+            currentTarget = target;
         } else
         {
             currentTarget = null;
@@ -176,7 +205,17 @@ public class Shooter : MonoBehaviour
             GameObject projectileInstance = Instantiate(projectilePrefabs[index]);
             projectileInstance.transform.position = transform.position;
             projectileInstance.GetComponent<Projectile>().target = currentTarget;
+
+            UpdateTarget(TargetMode.Biggest);
+            SoundManager.instance.PlaySound(shotSounds[index]);
         }
     }
 
+    public void CloneData(Shooter other)
+    {
+        shotCooldown = other.shotCooldown;
+        currentTarget = other.currentTarget;
+        targetsInRange = other.targetsInRange;
+        canShoot = other.canShoot;
+    }
 }

@@ -8,6 +8,9 @@ public class MoneyManager : MonoBehaviour
     [HideInInspector]
     public static MoneyManager instance;
 
+    [SerializeField]
+    private int startingDoubloons;
+
     private int doubloons;
     private int doubloonsPerSecond;
     private float timer;
@@ -22,7 +25,7 @@ public class MoneyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doubloons = 100;
+        doubloons = startingDoubloons;
         timer = 0.0f;
 
         //change to set doubleloons per second

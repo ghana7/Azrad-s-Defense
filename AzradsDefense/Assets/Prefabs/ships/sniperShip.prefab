@@ -270,13 +270,15 @@ MonoBehaviour:
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 200
+  price: 150
   description: Long range detection.
   timer: 0
   popUp: {fileID: 0}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  isUpgraded: 0
+  upgradePrefab: {fileID: 6171872025592738720, guid: b61bcd958c59f2142a4f7b0d58eaca25,
+    type: 3}
+  upgradeCost: 75
 --- !u!114 &6171872025592738723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +302,6 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds:
+  - 
+  - cannon

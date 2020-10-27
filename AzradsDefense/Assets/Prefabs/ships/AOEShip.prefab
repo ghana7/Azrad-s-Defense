@@ -4965,11 +4965,20 @@ MonoBehaviour:
   towerPrefab: {fileID: 3993935181220868113}
   towerType: 0
   canTravel: 0
+  firstPointPlaced: 0
+  secondPointPlaced: 0
+  toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
-  price: 500
-  isDamaged: 0
+  price: 250
   description: Hits all enemies in an area around it.
+  timer: 0
+  popUp: {fileID: 0}
+  isPlaced: 0
+  targetPrefab: {fileID: 0}
+  upgradePrefab: {fileID: 3993935181220868113, guid: 67b963e536fa4aa48a175f1a39155878,
+    type: 3}
+  upgradeCost: 200
 --- !u!114 &4975015568938946642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4990,4 +4999,7 @@ MonoBehaviour:
   canShoot: 0
   rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
     type: 3}
+  rangeCylInstance: {fileID: 0}
+  upgraded: 0
+  shotSounds: []
   particleWrapper: {fileID: 639998949649687440}

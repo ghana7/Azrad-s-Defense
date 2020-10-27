@@ -87,8 +87,19 @@ public class LevelManager : MonoBehaviour
         if (level == 0)
         {
             waves.Add(new List<int> { 0, 0, 0 }); //first wave to spawn
-            waves.Add(new List<int> { 0, 0, 0, 1 });
-            waves.Add(new List<int> { 0, 0, 1, 1, 2 }); //last wave to spawn
+            waves.Add(new List<int> { 0, 0, 1 }); 
+            waves.Add(new List<int> { 0, 0, 1 }); 
+            waves.Add(new List<int> { 0, 1, 1 }); 
+            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0 });
+            waves.Add(new List<int> { 1, 1, 1, 1 });
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0 });
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 });
+            waves.Add(new List<int> { 1, 1, 1, 1, 1, 1, 1, 1 }); 
+            waves.Add(new List<int> { 1, 1, 1, 1, 2 }); 
+            waves.Add(new List<int> { 2, 1, 1, 1, 2 }); 
+            waves.Add(new List<int> { 2, 2, 2, 2, 2, 2, 2 }); 
+            waves.Add(new List<int> { 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0 }); 
+            waves.Add(new List<int> { 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2 }); //last wave to spawn
         }
         else if (level == 1)
         {
