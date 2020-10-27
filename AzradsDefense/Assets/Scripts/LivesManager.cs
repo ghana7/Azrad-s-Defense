@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LivesManager : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class LivesManager : MonoBehaviour
         livesText.text = lives.ToString();
         if(lives <= 0)
         {
-            //game over
+            SceneManager.LoadScene("Game Over");
         }
     }
 

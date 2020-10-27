@@ -220,6 +220,7 @@ MonoBehaviour:
   rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
     type: 3}
   rangeCylInstance: {fileID: 0}
+  upgraded: 0
 --- !u!58 &3993935181220868109
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -285,15 +286,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 3993935181220868113}
   towerType: 1
-  canTravel: 1
+  canTravel: 0
   firstPointPlaced: 0
   secondPointPlaced: 0
   toFirstPoint: 0
   travelPoints: []
   movementSpeed: 0
   price: 50
-  isDamaged: 0
   description: Shoots cannonballs at enemies. Slow fire rate.
   timer: 0
   popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
   isPlaced: 0
+  targetPrefab: {fileID: 0}
+  isUpgraded: 0
