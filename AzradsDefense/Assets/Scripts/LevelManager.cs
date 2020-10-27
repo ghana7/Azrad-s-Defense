@@ -99,14 +99,14 @@ public class LevelManager : MonoBehaviour
         else if (level == 2)
         {
             waves.Add(new List<int> { 2, 2, 1, 1, 1, 2, 2 }); //first wave to spawn
-            waves.Add(new List<int> { 2, 2, 2, 2, 3 });
-            waves.Add(new List<int> { 2, 2, 2, 3, 3, 3 }); //last wave to spawn
+            //waves.Add(new List<int> { 2, 2, 2, 2, 3 });
+            //waves.Add(new List<int> { 2, 2, 2, 3, 3, 3 }); //last wave to spawn
         }
         else
         {
-            waves.Add(new List<int> { 3, 3, 1, 2, 2, 3 }); //first wave to spawn
-            waves.Add(new List<int> { 3, 1, 2, 2 });
-            waves.Add(new List<int> { 3, 3, 3 }); //last wave to spawn
+            waves.Add(new List<int> { 1, 2, 2, 1 }); //first wave to spawn
+            //waves.Add(new List<int> { 2, 1, 2, 2 });
+            //waves.Add(new List<int> { 1, 2, 2 }); //last wave to spawn
         }
         
     }
