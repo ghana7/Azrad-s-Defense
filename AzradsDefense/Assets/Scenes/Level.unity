@@ -3780,6 +3780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab9146054b3cdf4a85b1fad39f9a1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingDoubloons: 100
   doubloonsText: {fileID: 113220976}
 --- !u!1 &1661147074
 GameObject:
@@ -4096,6 +4097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353007643696207699, guid: 9e35c28fe78e2664fba9c6a57e42d9cb,
+        type: 3}
+      propertyPath: advancedDebugLogs
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e35c28fe78e2664fba9c6a57e42d9cb, type: 3}

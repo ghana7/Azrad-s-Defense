@@ -221,6 +221,8 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds:
+  - cannon
 --- !u!58 &3993935181220868109
 CircleCollider2D:
   m_ObjectHideFlags: 0

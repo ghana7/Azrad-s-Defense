@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    [SerializeField]
+    private bool advancedDebugLogs;
     public static SoundManager instance;
     [Tooltip("The file path to search for sounds in - leave empty to search through all assets in Resources.\n\n" +
         "It is far more efficient to keep all Sound ScriptableObjects in one folder and give its path here.\n\n" +
@@ -39,6 +41,13 @@ public class SoundManager : MonoBehaviour
             soundDict[s._name] = s;
         }
         Debug.Log("Successfully loaded " + soundDict.Count + " sounds");
+        if(advancedDebugLogs)
+        {
+            foreach(Sound s in sounds)
+            {
+                Debug.Log(" - added sound \"" + s._name + "\"");
+            }
+        }
         for (int i = 0; i < numStartingSources; i++)
         {
             AudioSource source = gameObject.AddComponent<AudioSource>();

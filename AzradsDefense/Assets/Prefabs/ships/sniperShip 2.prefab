@@ -276,8 +276,8 @@ MonoBehaviour:
   popUp: {fileID: 0}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  isUpgraded: 0
   upgradePrefab: {fileID: 0}
+  upgradeCost: 0
 --- !u!114 &6171872025592738723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,3 +301,6 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds:
+  - 
+  - cannon

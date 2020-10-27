@@ -159,7 +159,7 @@ MonoBehaviour:
   travelPoints: []
   movementSpeed: 0
   price: 50
-  description: Shoots cannonballs that track enemies. Slow fire rate.
+  description: Catches fish and magically transmutes them into more gold.
   timer: 0
   popUp: {fileID: 6700167727259718891, guid: 90e022fad20da0f4d8c3dc816f602bb9, type: 3}
   isPlaced: 0
@@ -190,4 +190,7 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds:
+  - 
+  - money
   amountOfMoney: 10

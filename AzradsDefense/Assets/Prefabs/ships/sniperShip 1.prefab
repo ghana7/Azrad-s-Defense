@@ -302,3 +302,6 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds:
+  - 
+  - cannon

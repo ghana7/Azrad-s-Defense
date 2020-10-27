@@ -47,6 +47,7 @@ public class FishShooter : Shooter
             if(index == 1)
             {
                 MoneyManager.instance.AddMoney(amountOfMoney);
+                SoundManager.instance.PlaySound(shotSounds[1]);
             }
             GameObject projectileInstance = Instantiate(projectilePrefabs[index]);
             projectileInstance.transform.position = transform.position;

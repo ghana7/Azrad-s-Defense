@@ -221,6 +221,8 @@ MonoBehaviour:
     type: 3}
   rangeCylInstance: {fileID: 0}
   upgraded: 0
+  shotSounds:
+  - fire
 --- !u!58 &3993935181220868109
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -298,5 +300,5 @@ MonoBehaviour:
   popUp: {fileID: 0}
   isPlaced: 0
   targetPrefab: {fileID: 0}
-  isUpgraded: 0
   upgradePrefab: {fileID: 0}
+  upgradeCost: 0
