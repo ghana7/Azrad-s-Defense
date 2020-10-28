@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour
         {
             levelText.text = "Tutorial";
         }
+        Map.instance.SetLevel(level);
         //Debug.Log(level);
 
         SetSpeed(1);

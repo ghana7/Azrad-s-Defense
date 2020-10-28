@@ -47,6 +47,19 @@ public class Map : MonoBehaviour
         return true;
     }
 
+    public void SetLevel(int level) {
+        if(paths.Length > level)
+        {
+            activePath = paths[level].path;
+            landObjects = new List<GameObject>();
+            DrawMap();
+        } else
+        {
+            activePath = paths[0].path;
+            landObjects = new List<GameObject>();
+            DrawMap();
+        }
+    }
     void DrawMap()
     {
         LineRenderer lr = GetComponent<LineRenderer>();

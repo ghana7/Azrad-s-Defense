@@ -165,7 +165,7 @@ MonoBehaviour:
   targetPrefab: {fileID: 0}
   upgradePrefab: {fileID: 3993935181220868113, guid: a2a610ddb4b0f3d42a7b78b9f9449d16,
     type: 3}
-  upgradeCost: 50
+  upgradeCost: 25
 --- !u!114 &5486186754430954027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,4 +192,4 @@ MonoBehaviour:
   shotSounds:
   - 
   - money
-  amountOfMoney: 5
+  amountOfMoney: 4

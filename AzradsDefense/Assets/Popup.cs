@@ -37,8 +37,8 @@ public class Popup : MonoBehaviour
     public void Close()
     {
 
-        LevelManager.instance.SetSpeed(1);
-        //LevelManager.instance.SetSpeed(LevelManager.instance.savedSpeed);
+        //LevelManager.instance.SetSpeed(1);
+        LevelManager.instance.SetSpeed(LevelManager.instance.savedSpeed);
         Destroy(gameObject);
     }
 
