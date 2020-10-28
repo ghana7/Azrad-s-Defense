@@ -74,10 +74,6 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLevel(int levelToGoTo)
     {
-        //string level = levelToGoTo.ToString();
-        //level = string.Concat("Level", level);
-        ////Debug.Log("Going to '" + level + "'");
-        //SceneManager.LoadScene(level);
         GlobalVariables.Level = levelToGoTo;
         SceneManager.LoadScene("Level");
     }

@@ -98,38 +98,70 @@ public class LevelManager : MonoBehaviour
         waves.Clear();
         if (level == 0)
         {
-            waves.Add(new List<int> { 0, 0, 0 }); //first wave to spawn
-            waves.Add(new List<int> { 0, 0, 1 }); 
-            waves.Add(new List<int> { 0, 0, 1 }); 
-            waves.Add(new List<int> { 0, 1, 1 }); 
-            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0 });
-            waves.Add(new List<int> { 1, 1, 1, 1 });
-            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0 });
-            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 });
-            waves.Add(new List<int> { 1, 1, 1, 1, 1, 1, 1, 1 }); 
-            waves.Add(new List<int> { 1, 1, 1, 1, 2 }); 
-            waves.Add(new List<int> { 2, 1, 1, 1, 2 }); 
-            waves.Add(new List<int> { 2, 2, 2, 2, 2, 2, 2 }); 
-            waves.Add(new List<int> { 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0 }); 
-            waves.Add(new List<int> { 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2 }); //last wave to spawn
+            waves.Add(new List<int> { 0, 0, 1 });                                       //1
+            waves.Add(new List<int> { 0, 0, 1 });                                       //2
+            waves.Add(new List<int> { 0, 1, 1 });                                       //3
+            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0 });                           //4
+            waves.Add(new List<int> { 1, 1, 1, 1 });                                    //5
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0 });                        //6
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 });            //7
+            waves.Add(new List<int> { 1, 1, 1, 1, 1, 1, 1, 1 });                        //8 
+            waves.Add(new List<int> { 1, 1, 1, 1, 2 });                                 //9
+            waves.Add(new List<int> { 2, 2, 2, 2, 2, 2, 2 });                           //10
         }
         else if (level == 1)
         {
-            waves.Add(new List<int> { 0, 0, 1 }); //first wave to spawn
-            waves.Add(new List<int> { 1, 1, 1, 1 });
-            waves.Add(new List<int> { 1, 1, 1, 1, 1, 2 }); //last wave to spawn
+            waves.Add(new List<int> { 0, 0, 0 });                                   //1
+            waves.Add(new List<int> { 0, 0, 0, 1, 1 });                             //2
+            waves.Add(new List<int> { 0, 0, 0, 1, 1, 1 });                          //3
+            waves.Add(new List<int> { 2, 2, 2, 2, 1, 1, 1 });                       //4
+            waves.Add(new List<int> { 3, 1, 1, 0, 0, 0, 0, 1, 1 });                 //5
+            waves.Add(new List<int> { 2, 2, 2, 2, 2, 2, 2, 2, 2 });                 //6
+            waves.Add(new List<int> { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 });     //7
+            waves.Add(new List<int> { 3, 1, 1, 1, 2, 2, 0, 0, 0, 0, 0, 0 });        //8
+            waves.Add(new List<int> { 3, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1 });           //9
+            waves.Add(new List<int> { 3, 3, 3, 3, 3, 3, 3 });                       //10
         }
         else if (level == 2)
         {
-            waves.Add(new List<int> { 2, 2, 1, 1, 1, 2, 2 }); //first wave to spawn
-            //waves.Add(new List<int> { 2, 2, 2, 2, 3 });
-            //waves.Add(new List<int> { 2, 2, 2, 3, 3, 3 }); //last wave to spawn
+            waves.Add(new List<int> { 0, 0, 0 });                                   //1
+            waves.Add(new List<int> { 0, 0, 1 });                                   //2
+            waves.Add(new List<int> { 1, 0, 0 });                                   //3
+            waves.Add(new List<int> { 2, 0, 0, 0 });                                //4
+            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0 });                       //5
+            waves.Add(new List<int> { 2, 2, 2, 2 });                                //6
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0 });                    //7
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 });        //8
+            waves.Add(new List<int> { 1, 1, 1, 1, 1, 1, 1, 1 });                    //9
+            waves.Add(new List<int> { 0, 0, 2, 2, 3 });                             //10
+            waves.Add(new List<int> { 0, 0 });                                      //11
+            waves.Add(new List<int> { 0, 0, 0 });                                   //12
+            waves.Add(new List<int> { 1, 1, 1 });                                   //13
+            waves.Add(new List<int> { 2, 2, 2, 0, 0 });                             //14
+            waves.Add(new List<int> { 3 });                                         //15
         }
         else
         {
-            waves.Add(new List<int> { 1, 2, 2, 1 }); //first wave to spawn
-            //waves.Add(new List<int> { 2, 1, 2, 2 });
-            //waves.Add(new List<int> { 1, 2, 2 }); //last wave to spawn
+            waves.Add(new List<int> { 0, 0, 0 });                                   //1
+            waves.Add(new List<int> { 0, 0, 1 });                                   //2
+            waves.Add(new List<int> { 1, 0, 0 });                                   //3
+            waves.Add(new List<int> { 2, 0, 0, 0 });                                //4
+            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0 });                       //5
+            waves.Add(new List<int> { 2, 2, 2, 2 });                                //6
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0 });                    //7
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 });        //8
+            waves.Add(new List<int> { 1, 1, 1, 1, 1, 1, 1, 1 });                    //9
+            waves.Add(new List<int> { 0, 0, 2, 2, 3 });                             //10
+            waves.Add(new List<int> { 0, 0, 0 });                                   //11
+            waves.Add(new List<int> { 0, 0, 1 });                                   //12
+            waves.Add(new List<int> { 1, 0, 0 });                                   //13
+            waves.Add(new List<int> { 2, 0, 0, 0 });                                //14
+            waves.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0 });                       //15
+            waves.Add(new List<int> { 2, 2, 2, 2 });                                //16
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0 });                    //17
+            waves.Add(new List<int> { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 });        //18
+            waves.Add(new List<int> { 1, 1, 1, 1, 1, 1, 1, 1 });                    //19
+            waves.Add(new List<int> { 0, 0, 2, 2, 3 });                             //20
         }
         
     }
