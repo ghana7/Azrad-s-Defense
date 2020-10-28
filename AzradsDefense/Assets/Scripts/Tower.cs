@@ -101,7 +101,7 @@ public class Tower : MonoBehaviour
                     }
                     shooter.rangeCylInstance.SetActive(false);
                     Destroy(tempTarget);
-                    LevelManager.instance.SetSpeed(1.0f);
+                    LevelManager.instance.SetSpeed(LevelManager.instance.savedSpeed);
                 }
             }
         
