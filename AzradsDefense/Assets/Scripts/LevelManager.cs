@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class LevelManager : MonoBehaviour
 {
     [HideInInspector]
@@ -18,6 +17,9 @@ public class LevelManager : MonoBehaviour
     //pause menu
     public GameObject pause;
     public GameObject controls;
+
+    [SerializeField]
+    private Text levelText;
 
     private List<List<int>> waves;
 
@@ -33,8 +35,13 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlobalVariables.EnemiesDestroyed = 0; ;
+        GlobalVariables.EnemiesDestroyed = 0;
         level = GlobalVariables.Level;
+        levelText.text = "Level " + level.ToString();
+        if (level == 0)
+        {
+            levelText.text = "Tutorial";
+        }
         //Debug.Log(level);
 
         SetSpeed(1);
@@ -174,4 +181,6 @@ public class LevelManager : MonoBehaviour
         controls.SetActive(false);
         pause.SetActive(true);
     }
+
+    //
 }
