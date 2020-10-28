@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class LevelManager : MonoBehaviour
 {
     [HideInInspector]
@@ -19,9 +18,15 @@ public class LevelManager : MonoBehaviour
     public GameObject pause;
     public GameObject controls;
 
+    [SerializeField]
+    private Text levelText;
+
     private List<List<int>> waves;
 
     private int wavesSpawned;
+
+    [HideInInspector]
+    public float savedSpeed;
 
     // This is temporary until Nick makes speed-up images for the buttons
     private Text buttonText;
@@ -33,11 +38,17 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlobalVariables.EnemiesDestroyed = 0; ;
+        GlobalVariables.EnemiesDestroyed = 0;
         level = GlobalVariables.Level;
+        levelText.text = "Level " + level.ToString();
+        if (level == 0)
+        {
+            levelText.text = "Tutorial";
+        }
         //Debug.Log(level);
 
         SetSpeed(1);
+        savedSpeed = 1.0f;
 
         wavesSpawned = 0;
         waves = new List<List<int>>();
@@ -139,25 +150,32 @@ public class LevelManager : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        float speed = Time.timeScale;
-        speed += 1.0f;
-        if(speed > 3.0f)
+        if (Time.timeScale > 0.0f)
         {
-            Time.timeScale = 1.0f;
-            // Will set it to a picture eventually
-            buttonText.text = ">";
-        }
-        else if(speed == 3.0f)
-        {
-            Time.timeScale = speed;
-            // Will set it to a picture eventually
-            buttonText.text = ">>>";
-        }
-        else
-        {
-            Time.timeScale = speed;
-            // Will set it to a picture eventually
-            buttonText.text = ">>";
+            float speed = Time.timeScale;
+            speed += 1.0f;
+            Debug.Log(speed);
+            if (speed > 3.0f)
+            {
+                savedSpeed = 1.0f;
+                Time.timeScale = 1.0f;
+                // Will set it to a picture eventually
+                buttonText.text = ">";
+            }
+            else if (speed == 3.0f)
+            {
+                savedSpeed = speed;
+                Time.timeScale = speed;
+                // Will set it to a picture eventually
+                buttonText.text = ">>>";
+            }
+            else
+            {
+                savedSpeed = speed;
+                Time.timeScale = speed;
+                // Will set it to a picture eventually
+                buttonText.text = ">>";
+            }
         }
     }
 
@@ -169,7 +187,7 @@ public class LevelManager : MonoBehaviour
     public void Resume()
     {
         pause.SetActive(false);
-        SetSpeed(1);
+        SetSpeed(savedSpeed);
     }
 
     public void Controls()
@@ -188,4 +206,6 @@ public class LevelManager : MonoBehaviour
         controls.SetActive(false);
         pause.SetActive(true);
     }
+
+    //
 }
