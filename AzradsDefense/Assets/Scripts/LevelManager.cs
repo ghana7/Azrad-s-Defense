@@ -218,12 +218,6 @@ public class LevelManager : MonoBehaviour
         SetSpeed(savedSpeed);
     }
 
-    public void Controls()
-    {
-        pause.SetActive(false);
-        controls.SetActive(true);
-    }
-
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
