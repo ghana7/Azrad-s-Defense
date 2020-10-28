@@ -104,7 +104,7 @@ public class Shooter : MonoBehaviour
                 targetsInRange.Add(other.gameObject);
                 if (currentTarget == null)
                 {
-                    UpdateTarget(TargetMode.Biggest);
+                    UpdateTarget(TargetMode.First);
                 }
             }
         }
@@ -121,7 +121,7 @@ public class Shooter : MonoBehaviour
                 targetsInRange.Remove(other.gameObject);
                 if (other.gameObject == currentTarget)
                 {
-                    UpdateTarget(TargetMode.Biggest);
+                    UpdateTarget(TargetMode.First);
                 }
             }
         }
