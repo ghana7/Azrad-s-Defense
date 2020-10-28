@@ -4996,7 +4996,7 @@ MonoBehaviour:
   - {fileID: 1379301172046988977, guid: 628938259596b7f41a8dc43c3a54ab4c, type: 3}
   cannonObject: {fileID: 0}
   range: 1
-  shotsPerSecond: 1
+  shotsPerSecond: 1.2
   canShoot: 0
   rangeCylPrefab: {fileID: 4044375570276767494, guid: 108ff3f732358fd45ab85b21c3655d26,
     type: 3}

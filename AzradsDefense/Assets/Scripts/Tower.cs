@@ -140,6 +140,10 @@ public class Tower : MonoBehaviour
             placed.GetComponent<Tower>().isPlaced = true;
             placed.GetComponent<Tower>().tempTarget = Instantiate(targetPrefab, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f), Quaternion.identity);
             LevelManager.instance.SetSpeed(0.0f);
+            if(LevelManager.instance.level == 0)
+            {
+                PopupManager.instance.TryShowPopup(3);
+            }
         }
     }
 

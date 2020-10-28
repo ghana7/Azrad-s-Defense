@@ -113,12 +113,6 @@ public class UIManager : MonoBehaviour
         held = false;
     }
 
-    public void Sell()
-    {
-        tower.FullDestroy();
-        MoneyManager.instance.AddMoney(tower.GetPrice());
-    }
-
     public bool isSelected()
     {
         return selected;

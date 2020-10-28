@@ -104,7 +104,7 @@ public class Shooter : MonoBehaviour
                 targetsInRange.Add(other.gameObject);
                 if (currentTarget == null)
                 {
-                    UpdateTarget(TargetMode.Biggest);
+                    UpdateTarget(TargetMode.First);
                 }
             }
         }
@@ -121,7 +121,7 @@ public class Shooter : MonoBehaviour
                 targetsInRange.Remove(other.gameObject);
                 if (other.gameObject == currentTarget)
                 {
-                    UpdateTarget(TargetMode.Biggest);
+                    UpdateTarget(TargetMode.First);
                 }
             }
         }
@@ -200,14 +200,18 @@ public class Shooter : MonoBehaviour
     /// </summary>
     public virtual void Shoot(int index)
     {
-        if(projectilePrefabs.Length > index)
+        if (projectilePrefabs.Length > index)
         {
             GameObject projectileInstance = Instantiate(projectilePrefabs[index]);
             projectileInstance.transform.position = transform.position;
             projectileInstance.GetComponent<Projectile>().target = currentTarget;
 
             UpdateTarget(TargetMode.Biggest);
-            SoundManager.instance.PlaySound(shotSounds[index]);
+            if (shotSounds.Length > index)
+            {
+                SoundManager.instance.PlaySound(shotSounds[index]);
+            }
+        
         }
     }
 

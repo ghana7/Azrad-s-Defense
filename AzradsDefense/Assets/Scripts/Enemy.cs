@@ -21,7 +21,11 @@ public class Enemy : MonoBehaviour
     {
         currentNode = 1;
         subProgress = 0;
-        transform.position = Map.instance.activePath[0];  
+        transform.position = Map.instance.activePath[0];
+        if (LevelManager.instance.level == 0)
+        {
+            PopupManager.instance.TryShowPopup(2);
+        }
     }
 
     void Update()
@@ -56,6 +60,13 @@ public class Enemy : MonoBehaviour
         Vector3 direction = displacement.normalized;
         transform.up = -direction;
         transform.position += direction * movementSpeed * Time.deltaTime;
+        if(transform.position.x >= -7)
+        {
+            if (LevelManager.instance.level == 0)
+            {
+                PopupManager.instance.TryShowPopup(0);
+            }
+        }
     }
 
     // Full destroy method to reward gold to the player, remove the enemy from the list of enemies, and destroy the gameobject

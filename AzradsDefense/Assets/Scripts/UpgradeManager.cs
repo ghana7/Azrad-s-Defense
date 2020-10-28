@@ -54,4 +54,13 @@ public class UpgradeManager : MonoBehaviour
             
         }
     }
+
+    public void Sell()
+    {
+        if(towerToUpgrade != null)
+        {
+            MoneyManager.instance.AddMoney(towerToUpgrade.GetPrice());
+            towerToUpgrade.FullDestroy();
+        }
+    }
 }

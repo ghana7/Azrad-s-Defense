@@ -87,6 +87,20 @@ public class LevelManager : MonoBehaviour
 
     private void SendWave()
     {
+        if(level == 0)
+        {
+            switch (wavesSpawned)
+            {
+                case 1:
+                    PopupManager.instance.TryShowPopup(1);
+                    break;
+                case 2:
+                    PopupManager.instance.TryShowPopup(5);
+                    break;
+                default:
+                    break;
+            }
+        }
         WaveManager.instance.enemiesToSpawn = waves[wavesSpawned];
         WaveManager.instance.enemiesLeft = waves[wavesSpawned].Count;
         wavesSpawned++;
