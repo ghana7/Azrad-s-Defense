@@ -13,7 +13,7 @@ public class ExampleSounds : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         //Simple playing of a sound effect
         if(Input.GetKeyDown(KeyCode.Alpha0))
         {
@@ -37,6 +37,6 @@ public class ExampleSounds : MonoBehaviour
                 fireworkIdQueue.RemoveAt(0);
                 SoundManager.instance.PlaySound("example_fireworkblast");
             }
-        }
+        }*/
     }
 }
